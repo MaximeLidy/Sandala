@@ -22,15 +22,19 @@ class ShowController extends AbstractController
 
         if (!empty($url)) {
             $messageRepo = $this->getDoctrine()->getRepository(Message::class)->findOneBy(['url' => $url]);
-            $type = $messageRepo->getType();
-            $message = $messageRepo->getText();
-            switch ($type) {
-                case "letter":
-                    return $this->render('show/letter.html.twig', ['message' => $message]);
-                case "note":
-                    return $this->render('show/note.html.twig', ['message' => $message]);
-                case "code":
-                    return $this->render('show/code.html.twig', ['message' => $message]);
+            if($messageRepo != null){
+                $type = $messageRepo->getType();
+                $message = $messageRepo->getText();
+                switch ($type) {
+                    case "letter":
+                        return $this->render('show/letter.html.twig', ['message' => $message]);
+                    case "note":
+                        return $this->render('show/note.html.twig', ['message' => $message]);
+                    case "code":
+                        return $this->render('show/code.html.twig', ['message' => $message]);
+                }
+            } else {
+                return $this->redirectToRoute('home');
             }
         } else {
             return $this->redirectToRoute('home');
