@@ -1,6 +1,6 @@
-
-###> symfony/framework-bundle ###
+.DS_Store
 .env
+###> symfony/framework-bundle ###
 .idea
 /.env.local
 /.env.local.php
