@@ -36,15 +36,13 @@ class MessageRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Message
+    public function findOneByUrl($value): ?Message
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('m.url = :url')
+            ->setParameter('url', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
 }
