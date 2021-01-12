@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+
+    {{ form_widget(form.text) }}
+    {{ form_widget(form.type) }}
+    {{ form_widget(form.deathDate) }}
+    <input type='submit' value='Submit'>
+    {{ form_end(form) }}
+
+{% endblock %}

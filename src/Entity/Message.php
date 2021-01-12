@@ -19,21 +19,29 @@ class Message
 
     /**
      * @ORM\Column(type="text")
+     * @ASsert\NotBlank()
+     * @ASsert\length(max="20000")
      */
     private $text;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @ASsert\NotBlank()
+     * @Assert\EnableAutoMapping()
      */
     private $type;
 
     /**
      * @ORM\Column(type="date")
+     * @ASsert\NotBlank()
+     * @Assert\EnableAutoMapping()
      */
     private $deathDate;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ASsert\NotBlank()
+     * @Assert\EnableAutoMapping()
      */
     private $url;
 
