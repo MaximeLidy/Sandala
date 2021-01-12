@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShowController extends AbstractController
 {
     /**
-     * @Route("/m/{url<^[a-zA-Z0-9_]*>}", name="program_list")
+     * @Route("/m/{url<^[a-zA-Z0-9_]*>}", name="message")
      * @param string $url
      * @return Response
      */
@@ -22,6 +22,7 @@ class ShowController extends AbstractController
 
         if (!empty($url)) {
             $messageRepo = $this->getDoctrine()->getRepository(Message::class)->findOneBy(['url' => $url]);
+
             if($messageRepo != null){
                 $type = $messageRepo->getType();
                 $message = $messageRepo->getText();
@@ -32,6 +33,8 @@ class ShowController extends AbstractController
                         return $this->render('show/note.html.twig', ['message' => $message]);
                     case "code":
                         return $this->render('show/code.html.twig', ['message' => $message]);
+                    default:
+                        return $this->redirectToRoute('home');
                 }
             } else {
                 return $this->redirectToRoute('home');
@@ -39,7 +42,5 @@ class ShowController extends AbstractController
         } else {
             return $this->redirectToRoute('home');
         }
-
-
     }
 }
