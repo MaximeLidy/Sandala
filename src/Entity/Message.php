@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
@@ -19,28 +20,26 @@ class Message
 
     /**
      * @ORM\Column(type="text")
-     * @ASsert\NotBlank()
-     * @ASsert\length(max="20000")
+     * @Assert\Length(max="20000")
      */
     private $text;
 
     /**
      * @ORM\Column(type="string", length=20)
-     * @ASsert\NotBlank()
      * @Assert\EnableAutoMapping()
      */
     private $type;
 
+    private $duration;
+
     /**
-     * @ORM\Column(type="date")
-     * @ASsert\NotBlank()
+     * @ORM\Column(type="datetime", nullable=true)
      * @Assert\EnableAutoMapping()
      */
     private $deathDate;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @ASsert\NotBlank()
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\EnableAutoMapping()
      */
     private $url;
@@ -97,4 +96,22 @@ class Message
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param mixed $duration
+     */
+    public function setDuration($duration): void
+    {
+        $this->duration = $duration;
+    }
+
+
 }

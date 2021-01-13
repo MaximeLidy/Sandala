@@ -4,8 +4,9 @@ namespace App\Form;
 
 use App\Entity\Message;
 
+
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,17 +27,21 @@ class MessageSubmitType extends AbstractType
                 ],
                 'expanded' => true
             ])
-            ->add('deathDate', ChoiceType::class, [
+            ->add('duration', ChoiceType::class, [
                 'choices' => [
-                    '6 hours' => '6',
-                    '12 hours' => '12',
-                    '24 hours' => '24',
-                    'a week' => 'week',
-                    'a month' => 'month',
-                    'a year' => 'year',
+                    '6 hours' => 'PT1H',
+                    '12 hours' => 'PT12H',
+                    '24 hours' => 'P1D',
+                    'a week' => 'P7D',
+                    'a month' => 'P1M',
+                    'a year' => 'P1Y',
                 ],
                 'expanded' => true
+            ])
+            ->add('save', SubmitType::class, [
+                'attr' => ['class' => 'Send'],
             ]);
+        ;
 
     }
 
@@ -46,4 +51,6 @@ class MessageSubmitType extends AbstractType
             'data_class' => Message::class,
         ]);
     }
+
+
 }
