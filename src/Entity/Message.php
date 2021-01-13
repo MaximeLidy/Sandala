@@ -8,6 +8,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
+ * @ORM\Table(name="message", indexes={
+ *      @ORM\Index(name="idx_url", columns={"url"})
+ * })
  */
 class Message
 {

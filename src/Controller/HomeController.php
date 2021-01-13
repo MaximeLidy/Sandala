@@ -3,15 +3,19 @@
 
 namespace App\Controller;
 
+use ContainerXct5NKm\EntityManager_9a5be93;
 use DateInterval;
 use DateTime;
 use App\Entity\Message;
 use App\Form\MessageSubmitType;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\UrlGeneratorService;
 
 class HomeController extends AbstractController
 {
@@ -44,11 +48,12 @@ class HomeController extends AbstractController
                 //Recording deathTimer
                 $message->setDeathDate($dt);
 
-                //TODO: GENERATE NEW UNIC URL
-
-                // Deal with the submitted data
-                // Get the Entity Manager
+                //Loading em
                 $entityManager = $this->getDoctrine()->getManager();
+
+                $urlGeneratorService = new UrlGeneratorService($entityManager);
+                $message->setUrl($urlGeneratorService->getUrl());
+
                 // Persist Category Object
                 $entityManager->persist($message);
                 // Flush the persisted object
