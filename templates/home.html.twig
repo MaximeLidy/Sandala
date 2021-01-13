@@ -1,14 +1,27 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
 
+    {% if success is defined %}
+        <p>Message transmis</p>
+    {% endif %}
+
+    {{ form_start(form) }}
+
+    <p>
+        {{ form_errors(form.text) }}
+    </p>
+    <p>
+        {{ form_errors(form.type) }}
+    </p>
+    <p>
+        {{ form_errors(form.duration) }}
+    </p>
 
     {{ form_widget(form.text) }}
     {{ form_widget(form.type) }}
-    {{ form_widget(form.deathDate) }}
-    <input type='submit' value='Submit'>
+    {{ form_widget(form.duration) }}
+    {{ form_widget(form.save, { 'label': 'Click me' }) }}
     {{ form_end(form) }}
 
 {% endblock %}
