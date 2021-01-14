@@ -4,6 +4,7 @@
 .yarnrc.yml
 .php-version
 .yarn/*
+.pnp.js
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
