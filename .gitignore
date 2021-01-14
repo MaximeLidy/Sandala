@@ -1,7 +1,9 @@
 .DS_Store
 .env
 .idea
-.yarnrc.ym
+.yarnrc.yml
+.php-version
+.yarn/*
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
