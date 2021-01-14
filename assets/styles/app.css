@@ -1,3 +1,46 @@
+@font-face {
+    font-family: "Tox";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Tox Typewriter.ttf");
+}
+
+@font-face {
+    font-family: "Felt";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Chunky Felt.otf");
+}
+
+@font-face {
+    font-family: "Inconsolata";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Inconsolata-Regular.ttf");
+}
+
+
 body {
-    background-color: lightgray;
+    background-color: #e9ecef;
+}
+
+.letter{
+    font-family: "Tox", serif;
+}
+
+.note{
+    font-family: "Felt", serif;
+}
+
+.code{
+    font-family: "Inconsolata", serif;
+}
+
+.disable-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently supported by any browser but < IE9 */
 }
