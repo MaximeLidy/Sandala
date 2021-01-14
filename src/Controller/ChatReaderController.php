@@ -3,16 +3,15 @@
 
 namespace App\Controller;
 
-use App\Entity\Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class ChatController extends AbstractController
+class ChatReaderController extends AbstractController
 {
     /**
-     * @Route("/c/{url<^[a-zA-Z0-9_]*>}")
+     * @Route("/r/{url<^[a-zA-Z0-9_]*>}")
      * @param string $url
      * @return Response
      */
@@ -21,8 +20,7 @@ class ChatController extends AbstractController
 
         if (!empty($url)) {
 
-
-            return $this->render('chat/chat.html.twig');
+            return $this->render('chat/chatReader.html.twig');
         } else {
             return $this->redirectToRoute('home');
         }

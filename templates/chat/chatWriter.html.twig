@@ -31,11 +31,9 @@
 			<span id="status" class="label label-warning">Disconnected</span>
 			<button id="connect" class="connect">Connect</button>
 		</div>
-		<div id="onlineActions" class="display: none">
-			<input type="text" id="message"/>
-			<button id="send" class="send">Send Message</button>
-		</div>
-		<div id="chatTarget" style="overflow-x: scroll; height:400px; max-height: 400px;">
+
+		<div id="chatWriter" class="card">
+			<input type="text" class="card-body" id="message" style="overflow-x: scroll;"/>
 		</div>
 
         {% block javascripts %}

@@ -1,0 +1,29 @@
+<?php
+
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+
+class ChatWriterController extends AbstractController
+{
+    /**
+     * @Route("/w/{url<^[a-zA-Z0-9_]*>}")
+     * @param string $url
+     * @return Response
+     */
+    public function chat(string $url): Response
+    {
+
+        if (!empty($url)) {
+
+
+            return $this->render('chat/chatWriter.html.twig');
+        } else {
+            return $this->redirectToRoute('home');
+        }
+    }
+}
