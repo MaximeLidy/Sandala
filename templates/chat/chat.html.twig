@@ -1,0 +1,45 @@
+<!Doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="Ma première description" name="description">
+	<meta content="NOINDEX" name="robots">
+
+	<!-- Ceci est un mon premier commentaire -->
+
+	<title>
+		Mon Premier Chat
+	</title>
+
+        {% block stylesheets %}
+            <link href="{{ asset('build/app.css') }}" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+</head>
+<body>
+	<h1> Mon Premier Chat</h1>
+
+		<h3>This is a websocket demo using basic websockets</h3>
+
+		<div id="offlineActions">
+			<div>Server IP: <input type="text" id="conn_str" value="ws://127.0.0.1:9000/"/></div>
+
+		</div>
+		<div id="statusBox">
+			<span id="status" class="label label-warning">Disconnected</span>
+			<button id="connect" class="connect">Connect</button>
+		</div>
+		<div id="onlineActions" class="display: none">
+			<input type="text" id="message"/>
+			<button id="send" class="send">Send Message</button>
+		</div>
+		<div id="chatTarget" style="overflow-x: scroll; height:400px; max-height: 400px;">
+		</div>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+	</body>
+</html>
