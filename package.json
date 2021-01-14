@@ -10,7 +10,8 @@
     "stimulus": "^2.0.0",
     "webpack-notifier": "^1.12.0"
   },
-  "scripts": {
-    "encore": "encore"
+  "dependencies": {
+    "copy-webpack-plugin": "^7.0.0",
+    "core-js": "3"
   }
 }
