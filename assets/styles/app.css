@@ -44,3 +44,7 @@ body {
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;           /* Non-prefixed version, currently supported by any browser but < IE9 */
 }
+
+input {
+    width: 400px;
+}

@@ -11,6 +11,7 @@ use App\Form\MessageSubmitType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -52,7 +53,8 @@ class HomeController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
 
                 $urlGeneratorService = new UrlGeneratorService($entityManager);
-                $message->setUrl($urlGeneratorService->getUrl());
+                $url = $urlGeneratorService->getUrl();
+                $message->setUrl($url);
 
                 // Persist Category Object
                 $entityManager->persist($message);
@@ -61,7 +63,7 @@ class HomeController extends AbstractController
                 // Finally redirect to categories list
                 return $this->render('home.html.twig', [
                     "form" => $form->createView(),
-                    "success" => ''
+                    "url" => $url
                 ]);
             }
         }

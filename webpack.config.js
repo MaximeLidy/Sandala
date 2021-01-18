@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('letter', './assets/js/letter.js')
+    .addEntry('copyUrl', './assets/js/copyUrl.js')
 
     .splitEntryChunks()
 
