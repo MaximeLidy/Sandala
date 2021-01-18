@@ -45,4 +45,14 @@ class MessageRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
+    public function findExpiredMessages()
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.deathDate < :deathDateValue')
+            ->setParameter('deathDateValue', new \DateTime("NOW"),\Doctrine\DBAL\Types\Type::DATETIME)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
