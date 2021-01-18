@@ -21,7 +21,7 @@
 
 
 body {
-    background-color: #e9ecef;
+    background-color: #F4F4F4;
 }
 
 .letter{
@@ -43,4 +43,8 @@ body {
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;           /* Non-prefixed version, currently supported by any browser but < IE9 */
+}
+
+input {
+    width: 400px;
 }
