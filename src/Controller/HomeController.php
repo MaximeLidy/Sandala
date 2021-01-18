@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\UrlGeneratorService;
+use App\Service\CleanMessagesService;
 
 class HomeController extends AbstractController
 {
@@ -23,6 +24,12 @@ class HomeController extends AbstractController
      */
     public function new(Request $request) : Response
     {
+        //Loading em
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $now = $this->getNowTime();
+        new CleanMessagesService($entityManager, $now);
+
         // Create a new Category Object
         $message = new Message();
         // Create the associated Form
@@ -44,8 +51,7 @@ class HomeController extends AbstractController
                 //Recording deathTimer
                 $message->setDeathDate($dt);
 
-                //Loading em
-                $entityManager = $this->getDoctrine()->getManager();
+
 
                 $urlGeneratorService = new UrlGeneratorService($entityManager);
                 $url = $urlGeneratorService->getUrl();
@@ -70,9 +76,13 @@ class HomeController extends AbstractController
     }
 
     public function addInterval($interval){
-        $dt = new DateTime('NOW');
+        $dt = $this->getNowTime();
         $dt->add(new DateInterval($interval));
         return $dt;
+    }
+
+    public function getNowTime(){
+        return new DateTime('NOW');
     }
 
 }
