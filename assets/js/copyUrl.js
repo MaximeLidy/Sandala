@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("urlButton").addEventListener("click", function() {
         copyToClipboard(document.getElementById("url"));
-        changeButtonName();
     });
 
     function copyToClipboard(elem) {
@@ -54,10 +53,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
         return succeed;
     }
-
-    function changeButtonName(){
-        document.getElementById("urlButton").innerText = "Done !"
-    }
-
 });
 
