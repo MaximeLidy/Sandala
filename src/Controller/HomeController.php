@@ -3,17 +3,13 @@
 
 namespace App\Controller;
 
-use ContainerXct5NKm\EntityManager_9a5be93;
 use DateInterval;
 use DateTime;
 use App\Entity\Message;
 use App\Form\MessageSubmitType;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\UrlGeneratorService;
 
@@ -52,7 +48,8 @@ class HomeController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
 
                 $urlGeneratorService = new UrlGeneratorService($entityManager);
-                $message->setUrl($urlGeneratorService->getUrl());
+                $url = $urlGeneratorService->getUrl();
+                $message->setUrl($url);
 
                 // Persist Category Object
                 $entityManager->persist($message);
@@ -61,7 +58,7 @@ class HomeController extends AbstractController
                 // Finally redirect to categories list
                 return $this->render('home.html.twig', [
                     "form" => $form->createView(),
-                    "success" => ''
+                    "url" => $url
                 ]);
             }
         }
