@@ -105,11 +105,6 @@
                 "database_host": "DATABASE_HOST",
                 "database_port": "DATABASE_PORT"
             }
-        },
-        "paas": {
-            "compile": [
-                "php bin/console assets:install"
-            ]
         }
     }
 }
