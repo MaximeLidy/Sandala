@@ -99,6 +99,12 @@
         "symfony": {
             "allow-contrib": false,
             "require": "5.2.*"
+        },
+        "incenteev-parameters": {
+            "env-map": {
+                "database_host": "DATABASE_HOST",
+                "database_port": "DATABASE_PORT"
+            }
         }
     }
 }
