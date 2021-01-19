@@ -108,7 +108,7 @@
         },
         "paas": {
             "compile": [
-                "npm install -g yarn && yarn install --force && yarn encore prod"
+                "composer require webpack && npm install -g yarn && yarn install --force && yarn encore prod"
             ]
         }
     }
