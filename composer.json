@@ -105,6 +105,12 @@
                 "database_host": "DATABASE_HOST",
                 "database_port": "DATABASE_PORT"
             }
+        },
+        "paas": {
+            "compile": [
+                "npm install -g yarn && yarn install --force && yarn encore prod"
+            ]
         }
     }
+
 }
