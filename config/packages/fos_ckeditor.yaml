@@ -1,0 +1,23 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    configs:
+        my_config_1:
+            toolbar: "default"
+            uiColor: "#ffffff"
+    toolbars:
+        configs:
+            default: [
+                ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat'], ["Source"],
+                ["Align left", "Align right", "Center", "Justify" ],
+                [
+                        'JustifyLeft',
+                        'JustifyCenter',
+                        'JustifyRight',
+                        'JustifyBlock',
+                ],
+                ['TextColor']
+            ]

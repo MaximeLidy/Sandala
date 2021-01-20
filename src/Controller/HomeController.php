@@ -3,19 +3,16 @@
 
 namespace App\Controller;
 
-use ContainerXct5NKm\EntityManager_9a5be93;
 use DateInterval;
 use DateTime;
 use App\Entity\Message;
 use App\Form\MessageSubmitType;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\UrlGeneratorService;
+use App\Service\CleanMessagesService;
 
 class HomeController extends AbstractController
 {
@@ -27,6 +24,12 @@ class HomeController extends AbstractController
      */
     public function new(Request $request) : Response
     {
+        //Loading em
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $now = $this->getNowTime();
+        new CleanMessagesService($entityManager, $now);
+
         // Create a new Category Object
         $message = new Message();
         // Create the associated Form
@@ -48,11 +51,11 @@ class HomeController extends AbstractController
                 //Recording deathTimer
                 $message->setDeathDate($dt);
 
-                //Loading em
-                $entityManager = $this->getDoctrine()->getManager();
+
 
                 $urlGeneratorService = new UrlGeneratorService($entityManager);
-                $message->setUrl($urlGeneratorService->getUrl());
+                $url = $urlGeneratorService->getUrl();
+                $message->setUrl($url);
 
                 // Persist Category Object
                 $entityManager->persist($message);
@@ -61,7 +64,7 @@ class HomeController extends AbstractController
                 // Finally redirect to categories list
                 return $this->render('home.html.twig', [
                     "form" => $form->createView(),
-                    "success" => ''
+                    "url" => $url
                 ]);
             }
         }
@@ -73,9 +76,13 @@ class HomeController extends AbstractController
     }
 
     public function addInterval($interval){
-        $dt = new DateTime('NOW');
+        $dt = $this->getNowTime();
         $dt->add(new DateInterval($interval));
         return $dt;
+    }
+
+    public function getNowTime(){
+        return new DateTime('NOW');
     }
 
 }

@@ -4,37 +4,40 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}"/>
         {% endblock %}
     </head>
     <body>
         <div id="wrapper">
             <div id="pas-footer">
                 <header>
-                    <!-- As a link -->
-                    <nav class="navbar navbar-light bg-dark">
-                        <a class="navbar-brand text-light" href="{{ path('home') }}">Ceci est une navbar renvoyant à la page d'accueil</a>
+                    <nav id="first-navbar" class="navbar navbar-light bg-dark">
+                        <span class="navbar-brand mb-0 h1 text-light">ProjectX</span>
                     </nav>
-                    
-                    <!-- As a heading 
-                    <nav class="navbar navbar-light bg-light">
-                        <span class="navbar-brand mb-0 h1">Navbar</span>
+                    <nav id="second-navbar" class="navbar navbar-light bg-secondary">
+                        <a class="text-light top-navbar-link text-decoration-none oui" href="">Home</a>
+                        <a class="text-light top-navbar-link text-decoration-none oui" href="">Live</a>
                     </nav>
-                    -->
                 </header>
                 <main>
                     {% block body %}{% endblock %}
                 </main>
             </div> {# pas-footer #}
             <footer>
-                <div id="footer" class=".bg-dark">
+                <div id="footer" class="bg-dark">
                     <nav class="navbar navbar-light bg-dark">
-                        <a class="navbar-brand text-light" href="{{ path('home') }}">Ceci est un footer qui colle en bas</a>
+                        
+                    <p class="text-light">
+                        ProjectX est hébergé par Scalingo SAS - 15 avenue du Rhin - 67100 STRASBOURG - France
+                    </p>
+                    <p class="text-light">Edouard DA LAGE - Maxime LIDY - Sebastien STELTZEN</p>
+                    <a class="text-light text-decoration-none" href="">Mentions légales</a>
                     </nav>
-            </div>
+                </div>
             </footer>
         </div> {# wrapper #}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+
