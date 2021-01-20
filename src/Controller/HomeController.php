@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\UrlGeneratorService;
 use App\Service\CleanMessagesService;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class HomeController extends AbstractController
 {
@@ -35,6 +36,7 @@ class HomeController extends AbstractController
         // Create the associated Form
         $form = $this->createForm(MessageSubmitType::class, $message);
 
+
         if($request->isMethod('POST')){
 
             //$dt = $request->request->get($form->getName())["deathDate"];
@@ -54,8 +56,10 @@ class HomeController extends AbstractController
 
 
                 $urlGeneratorService = new UrlGeneratorService($entityManager);
-                $url = $urlGeneratorService->getUrl();
-                $message->setUrl($url);
+                $uniqUrl = $urlGeneratorService->getUrl();
+                $message->setUrl($uniqUrl);
+
+                $url = $this->generateUrl('message', array('url' => $uniqUrl), UrlGeneratorInterface::ABSOLUTE_URL);
 
                 // Persist Category Object
                 $entityManager->persist($message);
