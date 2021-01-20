@@ -108,7 +108,7 @@
         },
         "paas": {
             "compile": [
-                "composer require webpack && npm install -g yarn && yarn install --force && yarn encore prod && php bin/console ckeditor:install && yarn add ckeditor@^4.15.1"
+                "composer require webpack && npm install -g yarn && yarn install --force && yarn encore prod && php bin/console ckeditor:install && yarn add ckeditor@^4.12.1"
             ]
         }
     }
