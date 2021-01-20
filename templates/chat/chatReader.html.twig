@@ -33,11 +33,13 @@
 		</div>
 
 		<div class="card">
-			<div class="card-body" id ="chatTarget" style="overflow-x: scroll;"> </div>
+			<div class="card-body"> 
+				<div class="card-text" id ="chatTarget" style="min-height: 800px"> </div>
+			</div>
 		</div>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('chat') }}
         {% endblock %}
 	</body>
 </html>

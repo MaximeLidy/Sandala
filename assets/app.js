@@ -15,4 +15,3 @@ import './bootstrap';
 const $ = require('jquery');
 
 global.$ = global.jQuery = $;
-import './scripts/chat.js';

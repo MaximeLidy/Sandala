@@ -19,9 +19,9 @@
         {% endblock %}
 </head>
 <body>
-	<h1> Mon Premier Chat</h1>
+	<h1> Mon Live Coding</h1>
 
-		<h3>This is a websocket demo using basic websockets</h3>
+		<h3>Happy Reading</h3>
 
 		<div id="offlineActions">
 			<div>Server IP: <input type="text" id="conn_str" value="ws://127.0.0.1:9000/"/></div>
@@ -31,13 +31,16 @@
 			<span id="status" class="label label-warning">Disconnected</span>
 			<button id="connect" class="connect">Connect</button>
 		</div>
-
-		<div id="chatWriter" class="card">
-			<input type="text" class="card-body" id="message" style="overflow-x: scroll;"/>
+		<div class="row">
+			<div class ="w-100">
+				<div id="chatWriter" class="card">
+		 			<textarea class="card-body" aria-label="With textarea" style="min-height: 800px" id="message"></textarea>
+				</div>
+			</div>
 		</div>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('chat') }}	
         {% endblock %}
 	</body>
 </html>
