@@ -3,10 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div id="wrapper">
+            <div id="pas-footer">
+                <header>
+                    <!-- As a link -->
+                    <nav class="navbar navbar-light bg-dark">
+                        <a class="navbar-brand text-light" href="{{ path('home') }}">Ceci est une navbar renvoyant à la page d'accueil</a>
+                    </nav>
+                    
+                    <!-- As a heading 
+                    <nav class="navbar navbar-light bg-light">
+                        <span class="navbar-brand mb-0 h1">Navbar</span>
+                    </nav>
+                    -->
+                </header>
+                <main>
+                    {% block body %}{% endblock %}
+                </main>
+            </div> {# pas-footer #}
+            <footer>
+                <div id="footer" class=".bg-dark">
+                    <nav class="navbar navbar-light bg-dark">
+                        <a class="navbar-brand text-light" href="{{ path('home') }}">Ceci est un footer qui colle en bas</a>
+                    </nav>
+            </div>
+            </footer>
+        </div> {# wrapper #}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
