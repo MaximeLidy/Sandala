@@ -1,31 +1,57 @@
 
 *{
     box-sizing: border-box;
-}  
+}
 
-body{
-	background-color: #F4F4F4;
+@font-face {
+	font-family: "Tox";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/Tox Typewriter.ttf");
+}
 
-	@font-face {
-		font-family: "Tox";
-		font-style: normal;
-		font-weight: 400;
-		src: url("fonts/Tox Typewriter.ttf");
+@font-face {
+	font-family: "Felt";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/Chunky Felt.otf");
+}
+
+@font-face {
+	font-family: "Inconsolata";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/Inconsolata-Regular.ttf");
+}
+
+html {
+	font-size: 1rem;
+}
+
+.small-font {
+	font-size: 0.7rem;
+}
+
+@include media-breakpoint-up(sm) {
+	html {
+		font-size: 1.2rem;
 	}
+}
 
-	@font-face {
-		font-family: "Felt";
-		font-style: normal;
-		font-weight: 400;
-		src: url("fonts/Chunky Felt.otf");
+@include media-breakpoint-up(md) {
+	html {
+		font-size: 1.4rem;
 	}
+}
 
-	@font-face {
-		font-family: "Inconsolata";
-		font-style: normal;
-		font-weight: 400;
-		src: url("fonts/Inconsolata-Regular.ttf");
+@include media-breakpoint-up(lg) {
+	html {
+		font-size: 1.6rem;
 	}
+}
+
+body {
+	background-color: #fafafa;
 }
 
 .disable-select {

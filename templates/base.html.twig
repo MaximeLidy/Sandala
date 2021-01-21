@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Welcome on Sandala!{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
             <link rel="stylesheet" href="{{ asset('build/app.css') }}"/>
@@ -12,8 +12,8 @@
         <div id="wrapper">
             <div id="pas-footer">
                 <header>
-                    <nav id="first-navbar" class="navbar navbar-light bg-dark">
-                        <span class="navbar-brand mb-0 h1 text-light">ProjectX</span>
+                    <nav id="first-navbar" class="navbar navbar-light bg-info">
+                        <span class="navbar-brand mb-0 h1 text-light">Sandala</span>
                     </nav>
                     <nav id="second-navbar" class="navbar navbar-light bg-secondary">
                         <a class="text-light top-navbar-link text-decoration-none oui" href="">Home</a>
@@ -25,14 +25,13 @@
                 </main>
             </div> {# pas-footer #}
             <footer>
-                <div id="footer" class="bg-dark">
-                    <nav class="navbar navbar-light bg-dark">
+                <div id="footer" class="bg-info small-font">
+                    <nav class="navbar navbar-light bg-info text-center">
                         
                     <p class="text-light">
-                        ProjectX est hébergé par Scalingo SAS - 15 avenue du Rhin - 67100 STRASBOURG - France
-                    </p>
-                    <p class="text-light">Edouard DA LAGE - Maxime LIDY - Sebastien STELTZEN</p>
-                    <a class="text-light text-decoration-none" href="">Mentions légales</a>
+                        Sandala is hosted by Scalingo SAS - 15 avenue du Rhin - 67100 STRASBOURG - France<br/>
+                        Developed by : <span class="font-weight-bold">Edouard DA LAGE - Maxime LIDY - Sebastien STELTZEN</span><br/>
+                    <a class="text-light text-decoration-none" href="">General Conditions of Use of the website (GCU)</a></p>
                     </nav>
                 </div>
             </footer>
