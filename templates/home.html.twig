@@ -32,7 +32,7 @@
                     </p>
                 </div>
                 <div class="w-25 p-4 custom-control custom-radio">
-                    <img src="{{ asset('build/images/mandala.png'|e) }}" alt="logo"/>
+                    <img src="{{ asset('build/images/mandala.png') }}" width="128" alt="logo"/>
                     <div class="p-3">
                         {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
 
@@ -41,7 +41,7 @@
             </div>
             <div class="row">
                 <div class="p-3 w-75 custom-control-inline">
-                    <img src="{{ asset('build/images/hourglass64.png'|e) }}" alt="description"/>
+                    <img src="{{ asset('build/images/hourglass64.png')}}" width="48"  alt="description"/>
                     <div class="custom-control custom-radio d-flex">
                         {{ form_widget(form.duration, {label_attr: {class: 'radio-custom, radio-inline'}}) }}
                     </div>
