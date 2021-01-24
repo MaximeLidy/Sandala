@@ -28,8 +28,12 @@ html {
     font-size: 1rem;
 }
 
-.small-font {
+.very-small-font {
     font-size: 0.7rem;
+}
+
+.small-font {
+    font-size: 0.85rem;
 }
 
 @include media-breakpoint-up(sm) {

@@ -41,35 +41,35 @@ class HomeController extends AbstractController
 
             //$dt = $request->request->get($form->getName())["deathDate"];
 
-            $dt = $request->request->get($form->getName())['duration'];
+            if($request->request->get($form->getName())["text"] != null){
+                $dt = $request->request->get($form->getName())['duration'];
 
-            $dt = $this->addInterval($dt);
+                $dt = $this->addInterval($dt);
 
-            $form->submit($request->request->get($form->getName()));
+                $form->submit($request->request->get($form->getName()));
 
-            // Was the form submitted ?
-            if ($form->isSubmitted() && $form->isValid()) {
+                // Was the form submitted ?
+                if ($form->isSubmitted() && $form->isValid()) {
 
-                //Recording deathTimer
-                $message->setDeathDate($dt);
+                    //Recording deathTimer
+                    $message->setDeathDate($dt);
 
+                    $urlGeneratorService = new UrlGeneratorService($entityManager);
+                    $uniqUrl = $urlGeneratorService->getUrl();
+                    $message->setUrl($uniqUrl);
 
+                    $url = $this->generateUrl('message', array('url' => $uniqUrl), UrlGeneratorInterface::ABSOLUTE_URL);
 
-                $urlGeneratorService = new UrlGeneratorService($entityManager);
-                $uniqUrl = $urlGeneratorService->getUrl();
-                $message->setUrl($uniqUrl);
-
-                $url = $this->generateUrl('message', array('url' => $uniqUrl), UrlGeneratorInterface::ABSOLUTE_URL);
-
-                // Persist Category Object
-                $entityManager->persist($message);
-                // Flush the persisted object
-                $entityManager->flush();
-                // Finally redirect to categories list
-                return $this->render('home.html.twig', [
-                    "form" => $form->createView(),
-                    "url" => $url
-                ]);
+                    // Persist Category Object
+                    $entityManager->persist($message);
+                    // Flush the persisted object
+                    $entityManager->flush();
+                    // Finally redirect to categories list
+                    $request->setMethod("GET");
+                    return $this->render('home.html.twig', [
+                        "url" => $url
+                    ]);
+                }
             }
         }
 
