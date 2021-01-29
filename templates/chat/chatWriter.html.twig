@@ -9,7 +9,7 @@
 	<!-- Ceci est un mon premier commentaire -->
 
 	<title>
-		Mon Premier Chat
+		Mon Live Coding
 	</title>
 
         {% block stylesheets %}
@@ -19,9 +19,12 @@
         {% endblock %}
 </head>
 <body>
-	<h1> Mon Live Coding</h1>
+	<h1> Mon Live Coding : Writer</h1>
 
-		<h3>Happy Reading</h3>
+		<h3>Happy Writing</h3>
+
+		<h3>Lien à envoyer aux readers de la session :</h3>
+		<p> {{ readerUrl }} </p>
 
 		<input hidden id="server_ip" value="ws://127.0.0.1:{{ portNumber }}/"/>
 		<div class="row">
@@ -33,7 +36,7 @@
 		</div>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('chat') }}	
+            {{ encore_entry_script_tags('chatWriter') }}	
         {% endblock %}
 	</body>
 </html>

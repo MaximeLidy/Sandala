@@ -9,7 +9,7 @@
 	<!-- Ceci est un mon premier commentaire -->
 
 	<title>
-		Mon Premier Chat
+		Mon Live Coding
 	</title>
 
         {% block stylesheets %}
@@ -19,19 +19,13 @@
         {% endblock %}
 </head>
 <body>
-	<h1> Mon Premier Chat</h1>
+	<h1> Mon Live Coding : Reader</h1>
 
-		<h3>This is a websocket demo using basic websockets</h3>
+		<h3>Happy Reading</h3>
 
-		<div id="offlineActions">
-			<div>Server IP: <input type="text" id="conn_str" value="ws://127.0.0.1:9000/"/></div>
-
-		</div>
-		<div id="statusBox">
-			<span id="status" class="label label-warning">Disconnected</span>
-			<button id="connect" class="connect">Connect</button>
-		</div>
-
+	<input hidden id="server_ip" value="ws://127.0.0.1:{{ portNumber }}/"/>
+		
+		
 		<div class="card">
 			<div class="card-body"> 
 				<div class="card-text" id ="chatTarget" style="min-height: 800px"> </div>
@@ -39,7 +33,7 @@
 		</div>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('chat') }}
+            {{ encore_entry_script_tags('chatReader') }}
         {% endblock %}
 	</body>
 </html>

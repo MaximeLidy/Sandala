@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Port;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
 class ChatController extends AbstractController
@@ -23,13 +24,21 @@ class ChatController extends AbstractController
 
 
     /**
-     * @Route("/r/{url<^[a-zA-Z0-9_]*>}", name = "reader")
+     * @Route("/r/{port<^[0-9]*>}", name = "reader")
+     * @param string $port
      * @return Response
      */
-    public function reader(): Response
+    public function reader(string $port): Response
     {
-        return $this->render('chat/chatReader.html.twig');
-    }
+        if (isset($port)) {
+            $number = $this->getDoctrine()->getRepository(Port::class)->findPortIfUnavailable($port);
+
+            if (! $number->getAvailable())
+            return $this->render('chat/chatReader.html.twig', ["portNumber" => $port]);
+        } else {
+            return $this->render('chat/chatError.html.twig');
+        }
+    }        
 
     /**
      * @Route("/w/{url<^[a-zA-Z0-9_]*>}", name = "writer")
@@ -37,18 +46,23 @@ class ChatController extends AbstractController
      */
     public function writer(): Response
     {
+
+
         $entityManager = $this->getDoctrine()->getManager();
+        
+        // A remplacer par findbyPortAvailable
         $port = $this->getDoctrine()->getRepository(Port::class)->find(1);
         $port->setAvailable(true);
         $entityManager->persist($port);
         $entityManager->flush();
 
+        $url = $this->generateUrl('reader', ["port" => $port->getNumber()], UrlGeneratorInterface::ABSOLUTE_URL);
 
         if (isset($port)) {
             $port->setAvailable(false);
             $entityManager->persist($port);
             $entityManager->flush();
-            return $this->render('chat/chatWriter.html.twig', ["portNumber" => $port->getNumber()]);
+            return $this->render('chat/chatWriter.html.twig', ["portNumber" => $port->getNumber(), "readerUrl" =>$url]);
         } else {
             return $this->render('chat/chatError.html.twig');
         }

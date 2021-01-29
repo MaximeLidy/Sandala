@@ -30,6 +30,17 @@ class PortRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
+    public function findPortIfUnavailable($port): ?Port
+    {
+        return $this->createQueryBuilder('p')
+            
+            ->andWhere('p.number = :number')
+            ->setParameter('number', $port)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
     
 
     // /**
