@@ -37,7 +37,16 @@ class MessageSubmitType extends AbstractType
 
         $builder
             ->add('text', CKEditorType::class, [
-                'config_name' => 'code_config',
+                'config' => [
+                    'extraPlugins' => 'codesnippet',
+                    'codeSnippet_theme' => 'atom-one-dark',
+                ],
+                'plugins' => [
+                    'codesnippet' => [
+                        'path' => 'build/ckeditor/plugins/codesnippet/',
+                        'filename' => 'plugin.js'
+                    ],
+                ],
             ])
             ->add('type', ChoiceType::class, [
                 'choices' => $type_options,
