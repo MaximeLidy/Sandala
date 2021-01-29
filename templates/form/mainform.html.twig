@@ -1,0 +1,51 @@
+{% block form %}
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="w-75 p-3">
+            <p>
+                {{ form_widget(form.text) }}
+
+                {{ form_errors(form.text) }}
+                {{ form_errors(form.type) }}
+                {{ form_errors(form.duration) }}
+            </p>
+        </div>
+        <div class="h-50 w-25 p-4 custom-control custom-radio " >
+            <div class="p-3">
+                {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
+            </div>
+            <div class="row align-middle">
+                <div class="h-50 alert alert-light small-font font-italic" id="hint">
+                    <span class="">Choose your presentation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="p-1 w-75 custom-control-inline">
+            <img src="{{ asset('build/images/hourglass64.png')}}" width="48" height="48" alt="description"/>
+            <div class="pl-1 very-small-font font-italic text-secondary align-text-top">Select how long do you<br/> want to keep your<br/> message alive</div>
+            <div class="custom-control custom-radio d-flex">
+                {{ form_widget(form.duration, {label_attr: {class: 'radio-custom, radio-inline'}}) }}
+            </div>
+        </div>
+
+        {% if url is defined %}
+            <div class="p-1">
+                <button class="btn btn-success"
+                        type="button">Sent !
+                </button>
+            </div>
+        {% else %}
+            <div class="p-1">
+                {{ form_widget(form.save, { 'label': 'Send' }) }}
+                {{ form_end(form) }}
+            </div>
+        {% endif %}
+    </div>
+    {{ encore_entry_script_tags('mainForm') }}
+
+{% endblock %}

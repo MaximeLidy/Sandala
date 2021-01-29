@@ -7,12 +7,18 @@ fos_ck_editor:
     base_path: "build/ckeditor"
     js_path: "build/ckeditor/ckeditor.js"
     configs:
-        my_config_1:
-            toolbar: "default"
+        code_config:
+            toolbar: "code"
+            uiColor: "#ffffff"
+        note_config:
+            toolbar: "note"
+            uiColor: "#ffffff"
+        letter_config:
+            toolbar: "letter"
             uiColor: "#ffffff"
     toolbars:
         configs:
-            default: [
+            code: [
                 ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat'], ["Source"],
                 ["Align left", "Align right", "Center", "Justify" ],
                 [
@@ -22,4 +28,9 @@ fos_ck_editor:
                         'JustifyBlock',
                 ],
                 ['TextColor']
+            ]
+            note: [
+                [ 'Bold', 'Strike' ]
+            ]
+            letter: [
             ]
