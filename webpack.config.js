@@ -13,7 +13,11 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
-
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+        pattern: /\.(png|jpg|jpeg)$/
+    })
     /*
      * ENTRY CONFIG
      *
@@ -23,6 +27,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('letter', './assets/js/letter.js')
     .addEntry('copyUrl', './assets/js/copyUrl.js')
+    .addEntry('mainForm', './assets/js/mainForm.js')
 
     .splitEntryChunks()
 
