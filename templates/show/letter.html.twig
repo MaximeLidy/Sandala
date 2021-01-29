@@ -4,20 +4,11 @@
     <div class="jumbotron">
         <div class="container-fluid">
             <div class="row justify-content-md-center">
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col-md-auto bg-white">
-                    <p class="text-body">{{ message }}</p>
-                </div>
-                <div class="col">
-                    One of three columns
+                <div class="mh-100 col-md-8 bg-white bg-light border  letter disable-select text-body p-5" style="min-height: 800px;">
+                    {{ message | raw }}
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
+    {{ encore_entry_script_tags('letter') }}
 {% endblock %}

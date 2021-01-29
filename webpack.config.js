@@ -13,7 +13,11 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
-
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+        pattern: /\.(png|jpg|jpeg)$/
+    })
     /*
      * ENTRY CONFIG
      *
@@ -21,9 +25,16 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+
     .addEntry('chatWriter', './assets/js/chatWriter.js')
     .addEntry('chatReader', './assets/js/chatReader.js')
-    
+    .addEntry('letter', './assets/js/letter.js')
+    .addEntry('copyUrl', './assets/js/copyUrl.js')
+    .addEntry('mainForm', './assets/js/mainForm.js')
+
+    .splitEntryChunks()
+
+
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
@@ -72,6 +83,14 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
+
+    .copyFiles([
+        {from: './node_modules/ckeditor/', to: 'ckeditor/[path][name].[ext]', pattern: /\.(js|css)$/, includeSubdirectories: false},
+        {from: './node_modules/ckeditor/adapters', to: 'ckeditor/adapters/[path][name].[ext]'},
+        {from: './node_modules/ckeditor/lang', to: 'ckeditor/lang/[path][name].[ext]'},
+        {from: './node_modules/ckeditor/plugins', to: 'ckeditor/plugins/[path][name].[ext]'},
+        {from: './node_modules/ckeditor/skins', to: 'ckeditor/skins/[path][name].[ext]'}
+    ])
 ;
 
 module.exports = Encore.getWebpackConfig();
