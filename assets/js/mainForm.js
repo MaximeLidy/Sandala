@@ -1,7 +1,6 @@
 import 'jquery';
 
 $(document).ready(function () {
-
     //CKEditor instance
     var instance = CKEDITOR.instances['message_submit_text'];
     var hint = $('#hint span');
@@ -34,13 +33,15 @@ $(document).ready(function () {
             //Value of radioButtonChecked
             if ($(this).val() === 'code') {
 
-                hint.text("Share some lines of source code");
+                hint.text("Share some lines of source code with this icon : ");
+                $(".codeSnippetLogo").show();
 
                 if (instance.getData() !== "") {
                     $("#message_submit_save").show();
                 } else {
                     $("#message_submit_save").hide();
-                    hint.text("Share some lines of source code");
+                    hint.text("Share some lines of source code with this icon : ");
+                    $(".codeSnippetLogo").show();
                 }
 
             }
@@ -48,6 +49,7 @@ $(document).ready(function () {
             if ($(this).val() === 'letter') {
 
                 hint.text("Send a letter to somebody");
+                $(".codeSnippetLogo").hide();
 
                 if (instance.getData() !== "") {
                     $("#message_submit_save").show();
@@ -61,12 +63,13 @@ $(document).ready(function () {
             if ($(this).val() === 'note') {
 
                 hint.html("Post-it reminder <br/> (max. 200 characters");
-
+                $(".codeSnippetLogo").hide();
                 if (instance.getData().length <= 200 && instance.getData() !== "") {
                     $("#message_submit_save").show();
                 } else {
                     $("#message_submit_save").hide();
                     hint.html('Post-it reminder <br/> <span style="color:darkred">(max. 200 characters)</span>');
+                    $(".codeSnippetLogo").hide();
                 }
             }
 
@@ -80,16 +83,19 @@ $(document).ready(function () {
             // checks that the clicked radio button is the one of value 'Yes'
             // the value of the element is the one that's checked (as noted by @shef in comments)
             if ($(this).val() === 'code') {
-                hint.text("Share some lines of source code");
+                hint.text("Share some lines of source code with this icon : ");
+                $(".codeSnippetLogo").show();
             }
 
             if ($(this).val() === 'letter') {
                 hint.text("Send a letter to somebody");
+                $(".codeSnippetLogo").hide();
             }
 
             if ($(this).val() === 'note') {
 
                 hint.html("Post-it reminder <br/> (max. 200 characters");
+                $(".codeSnippetLogo").hide();
 
                 instance.on('change', function () {
                     if (instance.getData().length <= 200 && instance.getData() !== "") {
@@ -97,6 +103,7 @@ $(document).ready(function () {
                     } else {
                         $("#message_submit_save").hide();
                         hint.html('Post-it reminder <br/> <span style="color:darkred">(max. 200 characters)</span>');
+                        $(".codeSnippetLogo").hide();
                     }
                 });
             }
