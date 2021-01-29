@@ -1,6 +1,32 @@
 {% extends "show/show.html.twig" %}
 {% block body %}
+{#    <link rel="stylesheet" href="{{ asset('build/atom-one-dark.css') }}"/>#}
+    <div class="flex-grow-1 d-flex flex-column bg-dark text-light">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-expand-md">
+            <a class="navbar-brand" href="{{ path('home') }}">Return to Sandala</a>
+            <ul class="navbar-nav w-100">
+                <li class="nav-item ml-md-auto"><button id="duplicateCode" class="btn btn-warning switch">Duplicate code</button></li>
+            </ul>
+        </nav>
+        <!-- /bootstrap nav -->
+        <div class="container-fluid bg-dark text-light">
+            <!-- bootstrap nav -->
+            <div class="row">
+                <div class="p-4 mh-100 mx-auto bg-dark" id="content">
+                    <p>Some code sources have been shared with you...</p>
+                    <div class="row code" id="code">
+                        {{ message|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h1>{{ message | raw}}.</h1>
-
+    {{ encore_entry_script_tags('code') }}
+    {% block javascripts %}
+        <script src="{{ asset('build/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') }}"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+        </script>
+    {% endblock %}
 {% endblock %}
