@@ -23,7 +23,7 @@ class MessageSubmitType extends AbstractType
         $type_options = [
             'Code' => 'code',
             'Letter' => 'letter',
-            'Note' => 'note',
+            'Quick Note' => 'note',
         ];
 
         $duration_options = [
@@ -36,7 +36,9 @@ class MessageSubmitType extends AbstractType
         ];
 
         $builder
-            ->add('text', CKEditorType::class,)
+            ->add('text', CKEditorType::class, [
+                'config_name' => 'code_config',
+            ])
             ->add('type', ChoiceType::class, [
                 'choices' => $type_options,
                 'expanded' => true,
@@ -53,7 +55,6 @@ class MessageSubmitType extends AbstractType
             ])
             ->add('save', SubmitType::class, [
                 'attr' => ['class' => 'btn, btn-primary'],
-
             ]);
         ;
 
