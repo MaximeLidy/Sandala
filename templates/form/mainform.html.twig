@@ -12,14 +12,20 @@
                 {{ form_errors(form.duration) }}
             </p>
         </div>
-        <div class="h-50 w-25 p-4 custom-control custom-radio " >
+        <div class="h-50 w-25 p-4 custom-control custom-radio" >
             <div class="p-3">
                 {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
             </div>
             <div class="row align-middle">
-                <div class="h-50 alert alert-light small-font font-italic" id="hint">
-                    <span class="">Choose your presentation</span>
+                <div class="h-50 alert alert-light small-font font-italic bggreen text-white" id="hint">
+                    <div class="row align-items-end">
+                        <span class="w-75">Choose your presentation</span>
+                        <div class="codeSnippetLogo" style="display: none">
+                            <img src="{{ asset('build/images/codesnippet.png')}}" width="16" height="16" alt="codesnippetClue"/>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

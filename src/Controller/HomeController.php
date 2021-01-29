@@ -31,15 +31,13 @@ class HomeController extends AbstractController
         $now = $this->getNowTime();
         new CleanMessagesService($entityManager, $now);
 
-        // Create a new Category Object
+
         $message = new Message();
-        // Create the associated Form
+
         $form = $this->createForm(MessageSubmitType::class, $message);
 
 
         if($request->isMethod('POST')){
-
-            //$dt = $request->request->get($form->getName())["deathDate"];
 
             if($request->request->get($form->getName())["text"] != null){
                 $dt = $request->request->get($form->getName())['duration'];
