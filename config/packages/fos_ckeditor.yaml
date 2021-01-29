@@ -6,6 +6,10 @@ twig:
 fos_ck_editor:
     base_path: "build/ckeditor"
     js_path: "build/ckeditor/ckeditor.js"
+    plugins:
+        codesnippet:
+            path: "build/ckeditor/plugins/codesnippet/"
+            filename: "plugin.js"
     configs:
         code_config:
             toolbar: "code"
@@ -18,7 +22,10 @@ fos_ck_editor:
             uiColor: "#ffffff"
     toolbars:
         configs:
-            code: [
+            code:
+                [['CodeSnippet']]
+
+            letter: [
                 ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat'], ["Source"],
                 ["Align left", "Align right", "Center", "Justify" ],
                 [
@@ -30,7 +37,4 @@ fos_ck_editor:
                 ['TextColor']
             ]
             note: [
-                [ 'Bold', 'Strike' ]
-            ]
-            letter: [
             ]
