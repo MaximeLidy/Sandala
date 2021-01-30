@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Service\CounterService;
 use DateInterval;
 use DateTime;
 use App\Entity\Message;
@@ -60,6 +61,11 @@ class HomeController extends AbstractController
 
                     // Persist Category Object
                     $entityManager->persist($message);
+
+                    //Feed the stats
+                    $type = $message->getType();
+                    $statService = new CounterService($entityManager, $type);
+
                     // Flush the persisted object
                     $entityManager->flush();
                     // Finally redirect to categories list
