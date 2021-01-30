@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container ">
+
     <div class="row">
-        <div class="w-75 pt-4 pl-4 pr-2">
+        <div class="col-10 pt-4 pl-4 pr-2">
             <div class="pr-4 text-dark">
                 <p>
                     Sandala is a service that allows you to easily share any text with anyone and is free to use
@@ -19,16 +19,23 @@
                     worth
                     to be published.
                 </p>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="w-25 p-4">
-                <img src="{{ asset('build/images/mandala.png') }}" width="150" alt="logo"/>
+                <p>
+                    Feel free to fill this form, select your style (<span class="font-italic">some code sources, a letter or a Post'it</span>) and a duration (<span class="font-italic">afterwards your message will be deleted</span>).
+                </p>
+                <p>
+                    Once you've <button type="button" class="btn btn-primary btn-sm">sent</button> it, a <span class="fake-link">link</span> redirecting to your message will be displayed.
+                </p>
+                <p>
+                    Have no concerns about sharing it.
+                </p>
+                <p>
+                    No authentication is required and we don't record any personal information about you or those who'll read your message.
+                </p>
             </div>
         </div>
     </div>
 
-    <div class="col-12">
+    <div class="container-fluid">
         {% if form is defined %}
             {% include 'form/mainform.html.twig' %}
         {% endif %}
