@@ -9,6 +9,5 @@
 import './styles/global.scss';
 import './styles/app.css';
 import './styles/atom-one-dark.css';
-
 // start the Stimulus application
 import './bootstrap';
