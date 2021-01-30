@@ -2,51 +2,60 @@
 
 {% block body %}
     <div class="container ">
-        <div class="row">
-            <div class="w-75 pt-4 pl-4 pr-2">
-                <div class="pr-4">
-                    <p>
-                        Sandala is a service that allows you to easily share any text with anyone and is free to use
-                        <span class="font-italic">(and will always be ;) )</span>.
-                    </p>
-                    <p>
-                        This website was inspired by the Tibetan Buddhist tradition, the <a
-                                href="https://en.wikipedia.org/wiki/Sand_mandala">Sand mandalas</a>, referring to the
-                        impermanence of things.
-                        We consider that we don't need to keep anything longer than it's needed.</p>
-                    <p>
-                        Before sharing your words, you need to evaluate <span class="font-italic">how long</span> they are worth
-                        to be published.
-                    </p>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="w-25 p-4">
-                    <img src="{{ asset('build/images/mandala.png') }}" width="150" alt="logo"/>
-                </div>
+    <div class="row">
+        <div class="w-75 pt-4 pl-4 pr-2">
+            <div class="pr-4 text-dark">
+                <p>
+                    Sandala is a service that allows you to easily share any text with anyone and is free to use
+                    <span class="font-italic">(and will always be ;) )</span>.
+                </p>
+                <p>
+                    This website was inspired by the Tibetan Buddhist tradition, the <a
+                            href="https://en.wikipedia.org/wiki/Sand_mandala">Sand mandalas</a>, referring to the
+                    impermanence of things.
+                    We consider that we don't need to keep anything longer than it's needed.</p>
+                <p>
+                    Before sharing your words, you need to evaluate <span class="font-italic">how long</span> they are
+                    worth
+                    to be published.
+                </p>
             </div>
         </div>
+        <div class="row align-items-center">
+            <div class="w-25 p-4">
+                <img src="{{ asset('build/images/mandala.png') }}" width="150" alt="logo"/>
+            </div>
+        </div>
+    </div>
 
-        <div class="col-12">
-            {% if form is defined %}
-                {% include 'form/mainform.html.twig' %}
-            {% endif %}
-            {% if url is defined %}
-                <div class="pt-3 alert alert-success w-75" role="alert">
-                    <p>Your message has been sent, you can show it <a href="{{ url }}">here</a> :</p>
-                    <div class="span2 p-1">
-                        <button type="button" id="urlButton" class="btn btn-primary btn-block">Copy web link!</button>
-                        <div class="pt-1 ">
-                            <div class="input-group mb-3">
-                                <input class="w-100" type="text" id="url" aria-label="With textarea" value="{{ url }}" />
-                            </div>
+    <div class="col-12">
+        {% if form is defined %}
+            {% include 'form/mainform.html.twig' %}
+        {% endif %}
+        {% if url is defined %}
+            <div class="pt-3 alert alert-success text-center" role="alert">
+                <p>Your message has been sent, you can show it <a href="{{ url }}" style="color: #EE964B" class="font-weight-bold">here</a>.</p>
+                <div class="row d-flex justify-content-center pt-1">
+
+                        <div class="span2 p-1 w-50">
+                            <button type="button" id="urlButton" class="btn bg-verdigris btn-block text-light ">Copy web link ?</button>
+                        </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="pl-2 col-8 col-centered offset-2">
+                        <div class="input-group mb-3">
+                            <input class="w-75 bg-verdigris" style="opacity: 0.7" type="text" id="url"
+                                   aria-label="With textarea" value="{{ url }}"/>
                         </div>
                     </div>
-
-                {{ encore_entry_script_tags('copyUrl') }}
-
                 </div>
-            {% endif %}
-        </div>
+
+            </div>
+
+            {{ encore_entry_script_tags('copyUrl') }}
+
+        {% endif %}
+    </div>
 
 {% endblock %}

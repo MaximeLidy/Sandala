@@ -1,10 +1,26 @@
 // customize some Bootstrap variables
 /*$primary: darken(#428bca, 20%);*/
 
-@import "~bootstrap/scss/bootstrap";
+
 
 $blueMunsell: #1B9AAA;
 $yellowLight: #F8FFE5;
 $greenCaribbean: #06D6A0;
 $pinkParadise: #EF476F;
 $orangeYellow: #FFC43D;
+
+$pine: #1F271B;
+$blueSapphire: #19647E;
+$verdigris: #28AFB0;
+$yellowOrange: #F4D35E;
+$sandy: #ee964b;
+$whiteYellow: #f8ffe5;
+
+$theme-colors: (
+        primary: $blueSapphire,
+        success: $verdigris,
+);
+
+$font-family-sans-serif: Oswald, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif;
+
+@import "~bootstrap/scss/bootstrap";
