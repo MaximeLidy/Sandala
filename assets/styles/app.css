@@ -1,3 +1,12 @@
+:root {
+    --pine: #1F271B;
+    --blueSapphire: #19647E;
+    --verdigris: #28AFB0;
+    --yellowOrange: #F4D35E;
+    --sandy: #ee964b;
+    --whiteYellow: #f8ffe5;
+    --fullwidth: 100%;
+}
 
 * {
     box-sizing: border-box;
@@ -54,40 +63,78 @@ html {
     }
 }
 
+.text-light-custom{
+    color: var(--whiteYellow);
+}
+
+.text-dark-custom{
+    color: var(--pine);
+}
+
+a:link {
+    color: var(--verdigris);
+}
+
+a:hover {
+    color: var(--yellowOrange);
+}
+
+a:visited {
+    color: var(--sandy);
+}
+
+/* This is the default state */
+.custom-radio .custom-control-label::before {
+    background-color: var(--whiteYellow)
+}
+
+/* This is the checked state */
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-color: var(--verdigris);
+    border-radius: 50%;
+}
+
+/* active state i.e. displayed while the mouse is being pressed down */
+.custom-radio .custom-control-input:active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: var(--yellowOrange);
+}
+
+/* the shadow; displayed while the element is in focus */
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(238, 150, 75, 0.5);
+}
+
+
 body {
-    background-color: #fafafa;
+    background-color: var(--whiteYellow);
 }
 
-/*$blueMunsell: #1B9AAA;*/
-/*$yellowLight: #F8FFE5;*/
-/*$greenCaribbean: #06D6A0;*/
-/*$pinkParadise: #EF476F;*/
-/*$orangeYellow: #FFC43D;*/
-
-body {
-    background-color: #fafafa;
+.bg-pine{
+    background-color: var(--pine);
 }
 
-.bgblue{
-    background-color: #1B9AAA;
+.bg-blueSapphire{
+    background-color: var(--blueSapphire);
 }
 
-.bgyellow{
-    background-color: #F8FFE5;
+.bg-verdigris{
+    background-color: var(--verdigris);
 }
 
-.bggreen{
-    background-color: #06D6A0;
+.bg-yellowOrange{
+    background-color: var(--yellowOrange);
 }
 
-.bgpink{
-    background-color: #EF476F;
+.bg-sandy{
+    background-color: var(--sandy);
 }
 
-.bgorange{
-    background-color: #FFC43D;
+#second-navbar > a:hover {
+    background-color: var(--yellowOrange);
+    color: var(--pine) !important;
 }
-
 
 .disable-select {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -123,18 +170,16 @@ body {
     display: flex;
     justify-content: flex-start;
     padding: 0;
+    color: var(--whiteYellow) !important;
 }
 
 #second-navbar > a {
     width: 25%;
     padding: 0.3em 0;
     text-align: center;
+    color: var(--whiteYellow) !important;
 }
 
-#second-navbar > a:hover {
-    background-color: #f4f4f4;
-    color: #6c757d !important;
-}
 
 /* Dimensions de la page et placement du footer */
 #wrapper {

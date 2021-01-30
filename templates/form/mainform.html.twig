@@ -17,21 +17,20 @@
                 {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
             </div>
             <div class="row align-middle">
-                <div class="h-50 alert alert-light small-font font-italic bggreen text-white" id="hint">
-                    <div class="row align-items-end">
-                        <span class="w-75">Choose your presentation</span>
-                        <div class="codeSnippetLogo" style="display: none">
+                <div class="h-50 alert alert-light small-font font-italic bg-verdigris text-white" id="hint">
+                    <div class="row align-items-center">
+                        <span class="">Choose your presentation</span>
+                        <div class="w-100 p-1 codeSnippetLogo bg-white text-center" style="display: none">
                             <img src="{{ asset('build/images/codesnippet.png')}}" width="16" height="16" alt="codesnippetClue"/>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="p-1 w-75 custom-control-inline">
+        <div class="w-75 custom-control-inline">
             <img src="{{ asset('build/images/hourglass64.png')}}" width="48" height="48" alt="description"/>
             <div class="pl-1 very-small-font font-italic text-secondary align-text-top">Select how long do you<br/> want to keep your<br/> message alive</div>
             <div class="custom-control custom-radio d-flex">
@@ -40,7 +39,7 @@
         </div>
 
         {% if url is defined %}
-            <div class="p-1">
+            <div class="p-1 mt-n5">
                 <button class="btn btn-success"
                         type="button">Sent !
                 </button>
