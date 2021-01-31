@@ -88,6 +88,10 @@ html {
     font-stretch: condensed;
 }
 
+.max-w-250px {
+    max-width: 250px;
+}
+
 
 .very-small-font {
     font-family: "MartelRegular", serif;

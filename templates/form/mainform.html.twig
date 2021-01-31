@@ -2,58 +2,72 @@
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
 
-    <div class="row form-group">
-        <div class="p-3 col-lg-8 offset-1">
-            <div>
-                {{ form_widget(form.text) }}
 
-                {{ form_errors(form.text) }}
-                {{ form_errors(form.type) }}
-                {{ form_errors(form.duration) }}
+    <div class="container">
+        <div class="row no-gutters form-group">
+            <div class="col-12 col-sm-6 col-md-8">
+                <div>
+                    {{ form_widget(form.text) }}
+
+                    {{ form_errors(form.text) }}
+                    {{ form_errors(form.type) }}
+                    {{ form_errors(form.duration) }}
+                </div>
             </div>
-        </div>
-        <div class="h-50 p-4 custom-control custom-radio align-text-bottom ">
-            <div class="p-3">
-                {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
-                <div class="row align-middle">
-                    <div class="m-2 alert alert-light small-font font-italic bg-info text-light" id="hint"
-                         style="opacity: 0.6">
-                        <div class="row align-items-center w-100">
-                            <span class="">Choose your style !</span>
-                            <div class="w-100 p-1 codeSnippetLogo bg-white text-center" style="display: none">
-                                <img src="{{ asset('build/images/codesnippet.png') }}" width="16" height="16"
-                                     alt="codesnippetClue"/>
+            <div class="col-12 col-md-4">
+                <div class="h-50 p-4 custom-control custom-radio align-text-bottom max-w-250px">
+                    <div class="p-3">
+                        {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
+                        <div class="row align-middle pl-4">
+                            <div class="pl-4 m-2 alert alert-light small-font font-italic bg-info text-light" id="hint"
+                                 style="opacity: 0.6">
+                                <div class="row align-items-center w-100">
+                                    <span class="">Choose your style !</span>
+                                    <div class="w-100 p-1 codeSnippetLogo bg-white text-center" style="display: none; min-width: 130px">
+                                        <img src="{{ asset('build/images/codesnippet.png') }}" width="16" height="16"
+                                             alt="codesnippetClue"/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        {% if url is defined %}
+                            <div class="p-1">
+                                <button class="w-100 btn btn-primary btn-lg"
+                                        type="button">Sent !
+                                </button>
+                            </div>
+                        {% else %}
+                            {{ form_widget(form.save, { 'label': 'Send' }) }}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                {% if url is defined %}
-                    <div class="p-1">
-                        <button class="w-100 btn btn-primary btn-lg"
-                                type="button">Sent !
-                        </button>
-                    </div>
-                {% else %}
-                    {{ form_widget(form.save, { 'label': 'Send' }) }}
-                {% endif %}
-            </div>
         </div>
-    </div>
 
-    <div class="row form-group">
-        <div class="w-75 custom-control-inline col-lg-8 offset-1">
-            <div class="col-6 pl-1 small-font font-italic text-secondary">Select how long do you want to keep your
-                message alive
+        <div class="row no-gutters form-group align-middle">
+
+            <div class="col-sm-2">
+                <img src="{{ asset('build/images/hourglass64.png') }}" width="48" height="48" alt="description"/>
+
             </div>
-            <img src="{{ asset('build/images/hourglass64.png') }}" width="48" height="48" alt="description"/>
-            <div class="col-6 custom-control custom-radio d-flex">
+            <div class="col-sm-6 custom-control custom-radio d-flex" style="max-width: 350px">
                 {{ form_widget(form.duration, {label_attr: {class: 'radio-custom, radio-inline'}}) }}
                 {{ form_end(form) }}
             </div>
+            <div class="col-sm-4">
+                <div class="small-font font-italic text-secondary">Select how long do you want to keep your
+                    message alive
+                </div>
+            </div>
         </div>
+
+
+
     </div>
+
+
 
 
     {{ encore_entry_script_tags('mainForm') }}
