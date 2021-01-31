@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-
-    <div class="row">
-        <div class="col-10 pt-4 pl-4 pr-2">
+    {{ encore_entry_script_tags('homeHelper') }}
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-10 col-xl-10 pt-4 pl-4 pr-2 text-justify">
             <div class="pr-4 text-dark">
                 <p>
                     Sandala is a service that allows you to easily share any text with anyone and is free to use
@@ -16,21 +16,65 @@
                     We consider that we don't need to keep anything longer than it's needed.</p>
                 <p>
                     Before sharing your words, you need to evaluate <span class="font-italic">how long</span> they are
-                    worth
-                    to be published.
+                    worth to stay online.
+                </p>
+            </div>
+
+            <div class="col-6 col-sm-3 pb-3" style="opacity: 0.5">
+                <button id="toggle" class="btn btn-success">
+                    But how does it work ?
+                </button>
+            </div>
+
+            <div id="howitworks" style="display: none">
+                <h5>How does it work ?</h5>
+
+
+                <p>
+                    <span class="font-italic">
+                        <q>
+                            <span class="font-weight-bold">Today, 7,842,826,536 people are living on earth !</span>
+                        </q>
+                    </span>
                 </p>
                 <p>
-                    Feel free to fill this form, select your style (<span class="font-italic">some code sources, a letter or a Post'it</span>) and a duration (<span class="font-italic">afterwards your message will be deleted</span>).
+                    <span class="font-italic">
+                        <q>
+                            Great. Let's say I want to share this information with someone. But at the very moment I wrote this sentence, it was already false.... Well, those words are not worth much now.
+                            Anyway, it will be not far from the truth for about... let's say an hour. Ok then, let's share it for an hour only !
+                        </q>
+                    </span>
+                </p>
+
+                <p>
+                    Sandala was mainly designed to share source codes between developpers, but it can be used for other
+                    purposes. You can send a nice letter with a typewriter style for example. Or a reminder on a
+                    post-it.
                 </p>
                 <p>
-                    Once you've <button type="button" class="btn btn-primary btn-sm">sent</button> it, a <span class="fake-link">link</span> redirecting to your message will be displayed.
+                    Feel free to fill this form below, select your style
+                    and a duration (<span class="font-italic">your message will be deleted afterwards</span>).
                 </p>
                 <p>
-                    Have no concerns about sharing it.
+                    Once you've
+                    <button type="button" class="btn btn-primary btn-sm">sent</button>
+                    it, a <span class="fake-link">link</span> redirecting to your message will be showned.
                 </p>
                 <p>
-                    No authentication is required and we don't record any personal information about you or those who'll read your message.
+                    Have no concerns about sharing it :
                 </p>
+                <p>
+                    No authentication is required and we don't record any personal information about you or those who'll
+                    read your message.
+                </p>
+            </div>
+        </div>
+        <div class="col-2" id="counter">
+            <div class="p-4 d-flex">
+                {% if counter is defined %}
+                    <p class="ml-auto font-italic small-font" style="opacity: 0.5">{{ counter }} messages were already
+                        sent</p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -40,28 +84,33 @@
             {% include 'form/mainform.html.twig' %}
         {% endif %}
         {% if url is defined %}
-            <div class="pt-3 alert alert-success text-center" role="alert">
-                <p>Your message has been sent, you can show it <a href="{{ url }}" style="color: #EE964B" class="font-weight-bold">here</a>.</p>
-                <div class="row d-flex justify-content-center pt-1">
-
-                        <div class="span2 p-1 w-50">
-                            <button type="button" id="urlButton" class="btn bg-verdigris btn-block text-light ">Copy web link ?</button>
+            <div class="row">
+                <div class="col-md-4 col-lg-4"></div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="pt-3 alert alert-success text-center" role="alert">
+                        <p>Your message has been sent, you can show it <a href="{{ url }}" style="color: #EE964B"
+                                                                          class="font-weight-bold">here</a>.</p>
+                        <div class="row d-flex justify-content-center pt-1">
+                            <div class="span2 p-1 w-50">
+                                <button type="button" id="urlButton" class="btn btn-warning">Copy web link ?</button>
+                            </div>
                         </div>
-                </div>
 
-                <div class="row d-flex justify-content-center">
-                    <div class="pl-2 col-8 col-centered offset-2">
-                        <div class="input-group mb-3">
-                            <input class="w-75 bg-verdigris" style="opacity: 0.7" type="text" id="url"
-                                   aria-label="With textarea" value="{{ url }}"/>
+                        <div class="row d-flex justify-content-center">
+                            <div class="pl-2 col-10 col-centered offset-2">
+                                <div class="input-group mb-3 p-1">
+                                    <input class="w-75" style="opacity: 0.7" type="text" id="url"
+                                           aria-label="With textarea" value="{{ url }}"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
             {{ encore_entry_script_tags('copyUrl') }}
+            <script>
 
+            </script>
         {% endif %}
     </div>
 

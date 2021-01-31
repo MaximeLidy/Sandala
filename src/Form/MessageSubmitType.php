@@ -39,7 +39,7 @@ class MessageSubmitType extends AbstractType
             ->add('text', CKEditorType::class, [
                 'config' => [
                     'extraPlugins' => 'codesnippet',
-                    'codeSnippet_theme' => 'atom-one-dark',
+                    'codeSnippet_theme' => 'rainbow',
                 ],
                 'plugins' => [
                     'codesnippet' => [
@@ -63,7 +63,7 @@ class MessageSubmitType extends AbstractType
                 )
             ])
             ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'w-100 btn btn-primary btn-lg'],
+                'attr' => ['class' => 'w-100 btn btn-primary btn-lg mt-auto'],
             ]);
         ;
 
