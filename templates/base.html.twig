@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Welcome on Sandala!{% endblock %}</title>
+    <meta name="author" content="co-authored by maxime lidy, edouard dalage, sebastien steltzlen">
+    <meta name="description" content="A time limited text and source code sharing service.">
+    <title>{% block title %}Sandala{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('build/app.css') }}"/>
         {{ encore_entry_link_tags('app') }}
@@ -11,17 +13,20 @@
 </head>
 <body>
     <header>
-        <nav id="first-navbar" class="navbar navbar-light">
-            <span class="navbar-brand mb-0 font-italic big-font">Sandala</span>
-            <img src="{{ asset('build/images/mandala.png') }}" width="64" alt="logo"/>
-            <span class="navbar-brand mb-0 font-italic">
-                    &nbsp;&nbsp;&nbsp;an easy to use text message delivery service.
-            </span>
+        <nav id="first-navbar" class="navbar navbar-light ">
+
+            <a class="top-navbar-link text-decoration-none" href="{{ path('home') }}">
+                <span class="navbar-brand font-italic big-font align-top mr-1">Sandala</span>
+                <img src="{{ asset('build/images/mandala.png') }}" width="64" alt="logo"/>
+                <span class="navbar-brand font-italic title pl-2 align-bottom">
+                        an easy to use text message delivery service.
+                </span>
+            </a>
 
         </nav>
         <nav id="second-navbar" class="navbar navbar-light">
-            <a class="top-navbar-link text-decoration-none oui" href="">Home</a>
-            <a class="top-navbar-link text-decoration-none oui" href="">Live</a>
+            <a class="top-navbar-link text-decoration-none" href="{{ path('home') }}">Home</a>
+            <a class="top-navbar-link text-decoration-none" href="">Live</a>
         </nav>
     </header>
 
@@ -34,8 +39,7 @@
     </main>
 
     <footer>
-        <div id="footer" class="very-small-font pt-2 footer">
-
+        <div class="very-small-font pt-2 footer">
                 <nav class="navbar navbar-light text-center">
                     <p class="text-light">
                         Sandala is hosted by Scalingo SAS - 15 avenue du Rhin - 67100 STRASBOURG - France<br/>

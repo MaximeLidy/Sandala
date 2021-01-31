@@ -1,6 +1,8 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("urlButton").addEventListener("click", function() {
+
+    document.getElementById("urlButton").addEventListener("click", function () {
         copyToClipboard(document.getElementById("url"));
+        document.getElementById("urlButton").innerText = 'Done !';
     });
 
     function copyToClipboard(elem) {
@@ -36,7 +38,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         var succeed;
         try {
             succeed = document.execCommand("copy");
-        } catch(e) {
+        } catch (e) {
             succeed = false;
         }
         // restore original focus
