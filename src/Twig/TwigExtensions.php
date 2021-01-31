@@ -29,9 +29,9 @@ class TwigExtensions extends AbstractExtension
         }
 
         // Return ready to render markup
-        return   "<pre>"
+        return   "<br/>"."<pre>"
             ."<code class=\"hljs {$result->language}\">{$result->value}</code>"
-            ."</pre>";
+            ."</pre>"."<br/>";
     }
 
     public function getName()

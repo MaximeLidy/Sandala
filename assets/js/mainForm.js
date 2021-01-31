@@ -22,22 +22,43 @@ $(document).ready(function () {
     //Default value (depends on scr/Form/MessageSubmitType default value)
     var radioButtonValue = 'code';
 
+    // //Need to be explicit, otherwise editors are appened
+    // if(CKEDITOR.instances['message_submit_text'])  {
+    //     if (CKEDITOR.instances['message_submit_text']) {
+    //         CKEDITOR.instances['message_submit_text'].destroy(true);
+    //         CKEDITOR.replace( 'message_submit_text', {
+    //             customConfig: '../ckeditorCodeConfig.js'
+    //         });
+    //     }
+    // }
+    //
+    // //Need to be explicit, otherwise editors are appened
+    // if(CKEDITOR.instances['message_submit_text'])  {
+    //     if (CKEDITOR.instances['message_submit_text']) {
+    //         CKEDITOR.instances['message_submit_text'].destroy(true);
+    //         CKEDITOR.replace( 'message_submit_text', {
+    //             customConfig: '../ckeditorLetterConfig.js'
+    //         });
+    //     }
+    // }
+    //
+    // //Need to be explicit, otherwise editors are appened
+    // if(CKEDITOR.instances['message_submit_text'])  {
+    //     if (CKEDITOR.instances['message_submit_text']) {
+    //         CKEDITOR.instances['message_submit_text'].destroy(true);
+    //         CKEDITOR.replace( 'message_submit_text', {
+    //             customConfig: '../ckeditorNoteConfig.js'
+    //         });
+    //     }
+    // }
+
+
     $(radioButtonGroup).on("click", function () {
 
         //Define radioButtonValue "on the fly"
         radioButtonValue = $(this).val();
 
         if ($(this).val() === 'code') {
-
-            //Need to be explicit, otherwise editors are appened
-            if(CKEDITOR.instances['message_submit_text'])  {
-                if (CKEDITOR.instances['message_submit_text']) {
-                    CKEDITOR.instances['message_submit_text'].destroy(true);
-                    CKEDITOR.replace( 'message_submit_text', {
-                        customConfig: '../ckeditorCodeConfig.js'
-                    });
-                }
-            }
 
             hint.html("You'd better use this icon to share your code :");
 
@@ -49,16 +70,7 @@ $(document).ready(function () {
             }
         } else if ($(this).val() === 'letter') {
 
-            //Need to be explicit, otherwise editors are appened
-            if(CKEDITOR.instances['message_submit_text'])  {
-                if (CKEDITOR.instances['message_submit_text']) {
-                    CKEDITOR.instances['message_submit_text'].destroy(true);
-                    CKEDITOR.replace( 'message_submit_text', {
-                        customConfig: '../ckeditorLetterConfig.js'
-                    });
-                }
-            }
-
+            codeSnippetLogo.hide();
             hint.html("Send a nice letter that cannot be copied");
 
             if (editor.getData() !== "") {
@@ -70,16 +82,6 @@ $(document).ready(function () {
             // checks that the clicked radio button is the one of value 'Yes'
         // the value of the element is the one that's checked
         else if ($(this).val() === 'note') {
-
-            //Need to be explicit, otherwise editors are appened
-            if(CKEDITOR.instances['message_submit_text'])  {
-                if (CKEDITOR.instances['message_submit_text']) {
-                    CKEDITOR.instances['message_submit_text'].destroy(true);
-                    CKEDITOR.replace( 'message_submit_text', {
-                        customConfig: '../ckeditorNoteConfig.js'
-                    });
-                }
-            }
 
             hint.html(whiteText);
             codeSnippetLogo.hide();

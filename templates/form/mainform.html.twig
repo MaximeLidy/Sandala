@@ -4,8 +4,8 @@
 
 
     <div class="container">
-        <div class="row no-gutters form-group">
-            <div class="col-12 col-sm-6 col-md-8">
+        <div class="row no-gutters form-group pt-2">
+            <div class="col-12 col-sm-12 col-md-8">
                 <div>
                     {{ form_widget(form.text) }}
 
@@ -15,11 +15,13 @@
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="h-50 p-4 custom-control custom-radio align-text-bottom max-w-250px">
-                    <div class="p-3">
+                <div class="h-75 card-body d-flex flex-column form-card-select-helper card-select">
+                <div class="custom-control custom-radio align-text-bottom">
+
                         {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
-                        <div class="row align-middle pl-4">
-                            <div class="pl-4 m-2 alert alert-light small-font font-italic bg-info text-light" id="hint"
+
+                        <div class="align-middle" id="selectHelper">
+                            <div class=" m-2 alert alert-light small-font font-italic bg-info text-light" id="hint"
                                  style="opacity: 0.6">
                                 <div class="row align-items-center w-100">
                                     <span class="">Choose your style !</span>
@@ -30,7 +32,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+
                     <div class="row">
                         {% if url is defined %}
                             <div class="p-1">
@@ -39,7 +42,10 @@
                                 </button>
                             </div>
                         {% else %}
-                            {{ form_widget(form.save, { 'label': 'Send' }) }}
+                            <div class="mainform-button-submit">
+                                {{ form_widget(form.save, { 'label': 'Send' }) }}
+                            </div>
+
                         {% endif %}
                     </div>
                 </div>
@@ -49,8 +55,7 @@
         <div class="row no-gutters form-group align-middle">
 
             <div class="col-sm-2">
-                <img src="{{ asset('build/images/hourglass64.png') }}" width="48" height="48" alt="description"/>
-
+                <img id="hourglass" src="{{ asset('build/images/hourglass64.png') }}" width="48" height="48" alt="description"/>
             </div>
             <div class="col-sm-6 custom-control custom-radio d-flex" style="max-width: 350px">
                 {{ form_widget(form.duration, {label_attr: {class: 'radio-custom, radio-inline'}}) }}
@@ -62,14 +67,7 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
-
-
-
     {{ encore_entry_script_tags('mainForm') }}
 
 {% endblock %}

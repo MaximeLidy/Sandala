@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Stats;
 use App\Service\CounterService;
 use DateInterval;
 use DateTime;
@@ -29,7 +30,13 @@ class HomeController extends AbstractController
         //Loading em
         $entityManager = $this->getDoctrine()->getManager();
 
+        $counterObject = $this->getDoctrine()
+            ->getRepository(Stats::class)
+            ->find(1);
+        $counter = $counterObject->getCounter();
+
         $now = $this->getNowTime();
+
         new CleanMessagesService($entityManager, $now);
 
 
@@ -64,13 +71,14 @@ class HomeController extends AbstractController
 
                     //Feed the stats
                     $type = $message->getType();
-                    $statService = new CounterService($entityManager, $type);
+                    new CounterService($entityManager, $type);
 
                     // Flush the persisted object
                     $entityManager->flush();
                     // Finally redirect to categories list
                     $request->setMethod("GET");
                     return $this->render('home.html.twig', [
+                        "counter" => $counter,
                         "url" => $url
                     ]);
                 }
@@ -79,6 +87,7 @@ class HomeController extends AbstractController
 
         // Render the form
         return $this->render('home.html.twig', [
+            "counter" => $counter,
             "form" => $form->createView(),
         ]);
     }

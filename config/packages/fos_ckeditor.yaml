@@ -6,6 +6,8 @@ twig:
 fos_ck_editor:
     base_path: "build/ckeditor"
     js_path: "build/ckeditor/ckeditor.js"
+#    jquery: true
+    auto_inline: false
 
     plugins:
         codesnippet:
@@ -16,7 +18,6 @@ fos_ck_editor:
         code_config:
             toolbar: "code"
             uiColor: "#403547"
-
     toolbars:
         configs:
             code:
