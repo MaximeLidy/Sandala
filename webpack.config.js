@@ -29,6 +29,11 @@ Encore
     .addEntry('copyUrl', './assets/js/copyUrl.js')
     .addEntry('mainForm', './assets/js/mainForm.js')
     .addEntry('code', './assets/js/code.js')
+    .addEntry('homeHelper', './assets/js/homeHelper.js')
+    // For future dev in ckEditor
+    // .addEntry('ckeditorLetterConfig', './assets/js/ckEditorConfig/configLetter.js')
+    // .addEntry('ckeditorNoteConfig', './assets/js/ckEditorConfig/configNote.js')
+    // .addEntry('ckeditorCodeConfig', './assets/js/ckEditorConfig/configCode.js')
 
     .splitEntryChunks()
 
