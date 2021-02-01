@@ -33,7 +33,12 @@ class HomeController extends AbstractController
         $counterObject = $this->getDoctrine()
             ->getRepository(Stats::class)
             ->find(1);
-        $counter = $counterObject->getCounter();
+
+        if(!is_null($counterObject)){
+            $counter = $counterObject->getCounter();
+        } else {
+            $counter = 0;
+        }
 
         $now = $this->getNowTime();
 
