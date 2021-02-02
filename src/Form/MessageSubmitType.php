@@ -65,7 +65,6 @@ class MessageSubmitType extends AbstractType
             ->add('save', SubmitType::class, [
                 'attr' => ['class' => 'w-100 btn btn-primary btn-lg mt-auto'],
             ]);
-        ;
 
     }
 
