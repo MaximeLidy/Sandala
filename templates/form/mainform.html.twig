@@ -4,7 +4,12 @@
 
 
     <div class="container">
-        <div class="row no-gutters form-group pt-2">
+        <div class="row no-gutters form-group pt-2"
+             data-offset="-165px"
+             data-container="form"
+             data-toggle="popover"
+             data-placement="right"
+             data-content="Click on this icon to share code !">
             <div class="col-12 col-sm-12 col-md-8">
                 <div>
                     {{ form_widget(form.text) }}
@@ -16,7 +21,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="h-75 card-body d-flex flex-column form-card-select-helper card-select">
-                <div class="custom-control custom-radio align-text-bottom">
+                    <div class="custom-control custom-radio align-text-bottom">
 
                         {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
 
@@ -68,5 +73,4 @@
         </div>
     </div>
     {{ encore_entry_script_tags('mainForm') }}
-
 {% endblock %}

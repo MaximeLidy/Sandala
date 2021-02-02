@@ -228,6 +228,9 @@ a:visited {
         margin:0;
         padding:5px 3px;
     }
+    #message_submit_type {
+        max-width: 110px;
+    }
 }
 
 /*// Small devices (portrait phones, 411px and up)*/
