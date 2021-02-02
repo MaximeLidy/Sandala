@@ -1,8 +1,9 @@
-window.addEventListener("DOMContentLoaded", (event) => {
+import $ from 'jquery';
 
-    document.getElementById("urlButton").addEventListener("click", function () {
-        copyToClipboard(document.getElementById("url"));
-        document.getElementById("urlButton").innerText = 'Done !';
+window.addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById("duplicateCode").addEventListener("click", function() {
+        copyToClipboard(document.getElementById("code"));
+        $("#duplicateCode").html("Done !");
     });
 
     function copyToClipboard(elem) {
@@ -38,7 +39,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
         var succeed;
         try {
             succeed = document.execCommand("copy");
-        } catch (e) {
+            document.getElementById("duplicateCode").innerHTML("Done !");
+        } catch(e) {
             succeed = false;
         }
         // restore original focus

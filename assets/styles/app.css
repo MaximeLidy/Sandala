@@ -1,8 +1,33 @@
+:root {
+    --pine: #131616;
+    --creamWhite: #FFFCF5;
+    --englishViolet: #403547;
+    --yaleBlue: #004C97;
+    --carolinaBlue: #009cde;
+    --orangeYellow: #EEB927;
+    --yellowPantone: #FBE122;
+    --appleGreen: #8CAB19;
+    --spanishGreen: #258c4b;
+    --greenRVB: #5FA430;
 
-* {
-    box-sizing: border-box;
+    --fullwidth: 100%;
 }
 
+@font-face {
+    font-family: "MartelRegular";
+    font-style: normal;
+    src: url("fonts/MartelSans-Regular.ttf");
+}
+@font-face {
+    font-family: "MartelLight";
+    font-style: normal;
+    src: url("fonts/MartelSans-Light.ttf");
+}
+@font-face {
+    font-family: "MartelBold";
+    font-style: normal;
+    src: url("fonts/MartelSans-Bold.ttf");
+}
 @font-face {
     font-family: "Tox";
     font-style: normal;
@@ -22,50 +47,61 @@
     src: url("fonts/Inconsolata-Regular.ttf");
 }
 
+
+* {
+    box-sizing: border-box;
+}
+
+.jumbotron {
+    background: transparent;
+}
+body {
+    background-color: var(--creamWhite);
+}
+
+/*Text*/
 html {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-stretch: condensed;
 }
 
 .very-small-font {
+    font-family: "MartelRegular", serif;
     font-size: 0.7rem;
 }
 
 .small-font {
+    font-family: "MartelRegular", serif;
     font-size: 0.85rem;
 }
 
-@include media-breakpoint-up(sm) {
-    html {
-        font-size: 1.2rem;
-    }
-}
-@include media-breakpoint-up(md) {
-    html {
-        font-size: 1.4rem;
-    }
-}
-@include media-breakpoint-up(lg) {
-    html {
-        font-size: 1.6rem;
-    }
+.big-font {
+    font-size: 2rem;
 }
 
-body {
-    background-color: #fafafa;
+
+.text-light-custom{
+    color: var(--creamWhite);
 }
 
-.disable-select {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Chrome/Safari/Opera */
-    -khtml-user-select: none; /* Konqueror */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently supported by any browser but < IE9 */
+.text-dark-custom{
+    color: var(--englishViolet);
 }
 
-.letter {
-    font-family: "Tox", serif;
+
+/*Links*/
+a:link {
+    color: var(--carolinaBlue);
 }
+
+a:hover {
+    color: var(--yaleBlue);
+}
+
+a:visited {
+    color: var(--orangeYellow);
+}
+
 .note {
     font-family: "Felt", serif;
 }
@@ -73,6 +109,37 @@ body {
     font-family: "Inconsolata", serif;
 }
 
+.fake-link {
+    color: var(--carolinaBlue) !important;
+    text-decoration: underline !important;;
+    cursor: pointer !important;;
+}
+
+/*Radio buttons*/
+/* This is the default state */
+.custom-radio .custom-control-label::before {
+    background-color: var(--creamWhite);
+}
+
+/* This is the checked state */
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-color: var(--carolinaBlue);
+    border-radius: 50%;
+}
+
+/* active state i.e. displayed while the mouse is being pressed down */
+.custom-radio .custom-control-input:active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: var(--yaleBlue);
+}
+
+/* the shadow; displayed while the element is in focus */
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 156, 222, 0.5);
+}
+
+/*Navbar*/
 .top-navbar-link {
     font-size: 1.25rem;
 }
@@ -80,39 +147,32 @@ body {
 #first-navbar {
     display: flex;
     justify-content: center;
+    color: var(--englishViolet) !important;
+    background-color: var(--creamWhite);
+    font-family: "Felt", serif;
 }
 #second-navbar {
     display: flex;
     justify-content: flex-start;
     padding: 0;
+    color: whitesmoke !important;
+    background-color: var(--englishViolet);
 }
 
 #second-navbar > a {
     width: 25%;
     padding: 0.3em 0;
     text-align: center;
+    color: whitesmoke !important;
 }
 
 #second-navbar > a:hover {
-    background-color: #f4f4f4;
-    color: #6c757d !important;
-}
-
-/* Dimensions de la page et placement du footer */
-#wrapper {
-    display: flex;
-    max-width: 1480px;
-    height: 100vh;
-    margin: 0 auto;
-    flex-direction: column;
-}
-
-#pas-footer {
-    flex: 1;
+    background-color: var(--orangeYellow);
+    color: var(--englishViolet) !important;
 }
 
 #footer {
-    justify-self: flex-end;
+    /*justify-self: flex-end;*/
 }
 
 /* Mise en page du footer */
@@ -149,4 +209,105 @@ body {
     top: 50%; left: 50%; /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
     box-shadow: 2px 4px 6px #444;
+    color: whitesmoke !important;
+    background-color: var(--englishViolet);
+}
+
+/*Letter templating*/
+.disable-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by any browser but < IE9 */
+}
+
+.letter {
+    font-family: "Tox", serif;
+}
+
+/*Note templating*/
+.note {
+    font-family: "Felt", serif;
+}
+
+/*Code templating*/
+.code {
+    font-family: "Inconsolata", serif;
+    color: var(--creamWhite);
+}
+
+@media (min-width: 100px) {
+
+    #hourglass, #selectHelper, #counter{
+        display: none;
+    }
+
+    .form-card-select-helper {
+        max-width: 268px;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .mainform-button-submit {
+        position:absolute;
+        top:10px;
+        right:5px;
+        margin:0;
+        padding:5px 3px;
+    }
+}
+
+/*// Small devices (portrait phones, 411px and up)*/
+@media (min-width: 410px) {
+
+}
+
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .title {
+        font-size: 1rem;
+    }
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    #hourglass, #selectHelper, #counter{
+        display: block;
+    }
+    .title {
+        font-size: 1.2rem;
+    }
+    .mainform-button-submit {
+        position: absolute;
+        top:200px;
+        left:0;
+        margin:0;
+        bottom: 0;
+        padding-left: 20px;
+    }
+
+    .card-select {
+        min-height: 300px;
+        max-height: 300px;
+    }
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+
 }

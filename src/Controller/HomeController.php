@@ -3,6 +3,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Stats;
+use App\Service\CounterService;
 use DateInterval;
 use DateTime;
 use App\Entity\Message;
@@ -28,18 +30,27 @@ class HomeController extends AbstractController
         //Loading em
         $entityManager = $this->getDoctrine()->getManager();
 
+        $counterObject = $this->getDoctrine()
+            ->getRepository(Stats::class)
+            ->find(1);
+
+        if(!is_null($counterObject)){
+            $counter = $counterObject->getCounter();
+        } else {
+            $counter = 0;
+        }
+
         $now = $this->getNowTime();
+
         new CleanMessagesService($entityManager, $now);
 
-        // Create a new Category Object
+
         $message = new Message();
-        // Create the associated Form
+
         $form = $this->createForm(MessageSubmitType::class, $message);
 
 
         if($request->isMethod('POST')){
-
-            //$dt = $request->request->get($form->getName())["deathDate"];
 
             if($request->request->get($form->getName())["text"] != null){
                 $dt = $request->request->get($form->getName())['duration'];
@@ -62,11 +73,17 @@ class HomeController extends AbstractController
 
                     // Persist Category Object
                     $entityManager->persist($message);
+
+                    //Feed the stats
+                    $type = $message->getType();
+                    new CounterService($entityManager, $type);
+
                     // Flush the persisted object
                     $entityManager->flush();
                     // Finally redirect to categories list
                     $request->setMethod("GET");
                     return $this->render('home.html.twig', [
+                        "counter" => $counter,
                         "url" => $url
                     ]);
                 }
@@ -75,6 +92,7 @@ class HomeController extends AbstractController
 
         // Render the form
         return $this->render('home.html.twig', [
+            "counter" => $counter,
             "form" => $form->createView(),
         ]);
     }
