@@ -3,51 +3,67 @@
 {% block body %}
     {{ encore_entry_script_tags('homeHelper') }}
     <div class="row justify-content-md-center">
-        <div class="col-sm-12 col-md-10 col-xl-10 pt-4 pl-4 pr-2 text-justify">
-            <div class="pr-4 text-dark">
-                <p>
-                    Sandala is a free service that allows you to share any text message with anybody easily.
-                </p>
-                <p>
-                    Free it is <span class="font-italic">(and it will always be ;) )</span>.
-                </p>
-                <p>
-                    The Sandala website was inspired by the Tibetian Buddists’  ‘<a href="https://en.wikipedia.org/wiki/Sand_mandala">Sand mandalas</a>’ tradition, which refers to the fact that nothing lasts for ever. You don’t need to keep anything longer than necessary.
-                </p>
-                <p>
-                    Before sharing your message, you have to decide <span class="font-italic">how long</span> it should be active.
-                </p>
-            </div>
+        {% if url is not defined %}
+            <div class="row h-100">
+                <div class="col-sm-12 col-md-8 pt-4 pl-4 pr-2 text-justify" id="presentation">
+                    <div class="pr-4 text-dark">
+                        <p>
+                            Sandala is a free service that allows you to share any text message with anybody easily.
+                        </p>
+                        <p>
+                            Free it is <span class="font-italic">(and it will always be ;) )</span>.
+                        </p>
+                        <p>
+                            The Sandala website was inspired by the Tibetian Buddists’ ‘<a
+                                    href="https://en.wikipedia.org/wiki/Sand_mandala">Sand mandalas</a>’ tradition,
+                            which refers to the fact that nothing lasts for ever.
+                        </p>
+                        <p>
+                            You don’t need to keep anything longer than necessary.
+                        </p>
+                        <p>
+                            Before sharing your message, you have to decide <span class="font-italic">how long</span> it
+                            should be active.
+                        </p>
+                    </div>
+                </div>
 
-            <div class="col-6 col-sm-3 pb-3" style="opacity: 0.5">
-                <button id="toggle" class="btn btn-success">
-                    But how does it work ?
-                </button>
+                <div class="d-flex justify-content-sm-center">
+                    <div class="pl-4 col-12 col-md-8 pb-3 my-auto align-middle mt-auto d-flex justify-content-sm-center" style="opacity: 0.8">
+                        <button id="toggle" class="btn btn-success">
+                            But how does it work ?
+                        </button>
+                    </div>
+                </div>
             </div>
+            <div class="col-sm-1 col-md-10 col-xl-10 pt-4 pl-4 pr-4 text-justify" id="howitworks"
+                 style="display: none">
 
-            <div id="howitworks" style="display: none">
                 <h5>How does it work ?</h5>
 
                 <p>
-                    <span class="font-italic">
-                        <q>
-                            <span class="font-weight-bold">Today, 7,842,826,536 people live on the planet earth !</span>
-                        </q>
-                    </span>
+                <span class="font-italic">
+                    <q>
+                        <span class="font-weight-bold">Today, 7,842,826,536 people live on the planet earth !</span>
+                    </q>
+                </span>
                 </p>
                 <p>
-                    <span class="font-italic">
-                        <q>
-                            Great. So let's say I want to share this information with someone. But at the very moment I wrote the sentence, it was already out of date... Well, my words are not worth much now. Anyway, it will be not far from the truth for about... let's say an hour. Ok then, let's share it for an hour only !
-                        </q>
-                    </span>
+                <span class="font-italic">
+                    <q>
+                        Great. So let's say I want to share this information with someone. But at the very moment I wrote the sentence, it was already out of date... Well, my words are not worth much now. Anyway, it will be not far from the truth for about... let's say an hour. Ok then, let's share it for an hour only !
+                    </q>
+                </span>
                 </p>
 
                 <p>
-                    Sandala was mainly designed to share source codes between software developers, but it can be used for other purposes. You can send a nice letter with a typewriter style font for example. Or a reminder on a post-it.
+                    Sandala was mainly designed to share source codes between software developers, but it can be
+                    used for other purposes. You can send a nice letter with a typewriter style font for example. Or
+                    a reminder on a post-it.
                 </p>
                 <p>
-                    Feel free to fill in the form below, select your style and a duration (<span class="font-italic">your message will be automatically deleted once the time limit is up</span>).
+                    Feel free to fill in the form below, select your style and a duration (<span
+                            class="font-italic">your message will be automatically deleted once the time limit is up</span>).
                 </p>
                 <p>
                     Once you've
@@ -58,18 +74,13 @@
                     Have no concerns about sharing it :
                 </p>
                 <p>
-                    No authentication is required and we don't record any personal information about you or those who will eventually read your message.
+                    No authentication is required and we don't record any personal information about you or those
+                    who will eventually read your message.
                 </p>
+
             </div>
-        </div>
-        <div class="col-2" id="counter">
-            <div class="p-4 d-flex">
-                {% if counter is defined %}
-                    <p class="ml-auto font-italic small-font" style="opacity: 0.5">{{ counter }} messages were already
-                        sent</p>
-                {% endif %}
-            </div>
-        </div>
+
+        {% endif %}
     </div>
 
     <div class="container-fluid">
@@ -77,23 +88,27 @@
             {% include 'form/mainform.html.twig' %}
         {% endif %}
         {% if url is defined %}
-            <div class="row">
-                <div class="col-md-4 col-lg-4"></div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="pt-3 alert alert-success text-center" role="alert">
-                        <p>Your message has been sent, you can show it <a href="{{ url }}" style="color: #EE964B"
-                                                                          class="font-weight-bold">here</a>.</p>
-                        <div class="row d-flex justify-content-center pt-1">
-                            <div class="span2 p-1 w-50">
-                                <button type="button" id="urlButton" class="btn btn-warning">Copy web link ?</button>
-                            </div>
-                        </div>
+            <div class="container-fluid">
+                <div class="row pt-4">
+                    <div class="col-md-3"></div>
+                    <div class="col-sm-12 col-lg-6 col-md-offset-1">
 
-                        <div class="row d-flex justify-content-center">
-                            <div class="pl-2 col-10 col-centered offset-2">
-                                <div class="input-group mb-3 p-1">
-                                    <input class="w-75" style="opacity: 0.7" type="text" id="url"
-                                           aria-label="With textarea" value="{{ url }}"/>
+                        <div class="pt-3 alert alert-success text-center" role="alert">
+                            <p>Your message has been sent, you can show it <a href="{{ url }}" style="color: #EE964B"
+                                                                              class="font-weight-bold">here</a>.</p>
+                            <div class="row d-flex justify-content-center pt-1">
+                                <div class="span2 p-1 w-50">
+                                    <button type="button" id="urlButton" class="btn btn-warning">Copy web link ?
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex justify-content-center">
+                                <div class="pl-2 col-10 col-centered offset-2">
+                                    <div class="input-group mb-3 p-1">
+                                        <input class="w-75" style="opacity: 0.7" type="text" id="url"
+                                               aria-label="With textarea" value="{{ url }}"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -101,9 +116,6 @@
                 </div>
             </div>
             {{ encore_entry_script_tags('copyUrl') }}
-            <script>
-
-            </script>
         {% endif %}
     </div>
 
