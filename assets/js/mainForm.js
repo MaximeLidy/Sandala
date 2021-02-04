@@ -14,8 +14,8 @@ $(document).ready(function () {
     var radioButtonGroup = $('input:radio[name="message_submit[type]"]');
     var submitButton = $("#message_submit_save");
     var codeSnippetLogo = $(".codeSnippetLogo");
-    var whiteText = 'Post-it reminder<br/><span style="color:white">(max. 100 characters)</span>';
-    var redText = 'Post-it reminder<br/><span style="color:darkred">(max. 100 characters)</span>';
+    var whiteText = 'Post-it reminder<br/><span style="color:white">(max. 200 characters)</span>';
+    var redText = 'Post-it reminder<br/><span style="color:darkred">(max. 200 characters)</span>';
     var ckEditorCodeSnippetIcon = $('.cke_button_icon');
     hint.html("Choose your style");
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
 
             hint.html(whiteText);
             codeSnippetLogo.hide();
-            if (editor.getData().length > 0 && editor.getData().length <= 100) {
+            if (editor.getData().length > 0 && editor.getData().length <= 208) {// 208 parce que balise <p></p>
                 hint.html(whiteText);
                 submitButton.show();
             } else {
@@ -110,9 +110,9 @@ $(document).ready(function () {
             } else {
                 submitButton.hide();
             }
-            //Hide form message if note > 100 char
+            //Hide form message if note > 200 char
         } else if (radioButtonValue === "note") {
-            if (editor.getData().length > 0 && editor.getData().length <= 100) {
+            if (editor.getData().length > 0 && editor.getData().length <= 208) {// 208 parce que balise <p></p>
                 hint.html(whiteText);
                 submitButton.show();
             } else {

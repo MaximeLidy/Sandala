@@ -13,13 +13,13 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class ChatController extends AbstractController
 {
     /**
-     * @Route("/a/accueil", name="accueil")
-     * 
+     * @Route("/a/w", name="welcome")
+     *
      * @return Response
      */
-    public function accueil(): Response
+    public function welcome(): Response
     {
-        return $this->render('chat/chatAccueil.html.twig');
+        return $this->render('chat/chatWelcome.html.twig');
     }
 
 
