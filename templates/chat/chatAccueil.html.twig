@@ -3,6 +3,10 @@
 {% block title %}Bienvenue sur le Live Coding{% endblock %}
 
 {% block body %}
-    <h1> Mon Live Coding </h1>
-		<h3>Démarrer un Live Coding</h3>
+
+	<div class="d-flex justify-content-sm-center nav-pills">
+      <div class="pl-4 pt-4 col-12 col-md-8 pb-3 my-auto align-middle mt-auto d-flex justify-content-sm-center nav-item" style="opacity: 0.8">
+          <a class="nav-link active" href="{{ path('writer') }}">Démarrer une session live</a>
+      </div>
+  </div>
 {% endblock %}

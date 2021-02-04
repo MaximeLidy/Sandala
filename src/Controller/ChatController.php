@@ -30,8 +30,8 @@ class ChatController extends AbstractController
      */
     public function reader(string $port): Response
     {
-        
-        if (isset($port)) {
+
+        if (isset($port) && $port != "") {
             $number = $this->getDoctrine()->getRepository(Port::class)->findPortIfUnavailable($port);
 
             if ($number != null) {
@@ -39,12 +39,12 @@ class ChatController extends AbstractController
             } else {
                 return $this->render('chat/chatError.html.twig');
             }
-        } 
+        }
         return $this->render('bundles/TwigBundle/Exception/error404.html.twig');
     }
 
     /**
-     * @Route("/w/{url<^[a-zA-Z0-9_]*>}", name = "writer")
+     * @Route("/w", name = "writer")
      * @return Response
      */
     public function writer(): Response
