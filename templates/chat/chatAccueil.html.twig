@@ -1,27 +1,8 @@
-<!Doctype html>
+{% extends "base.html.twig" %}
 
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta content="Ma première description" name="description">
-	<meta content="NOINDEX" name="robots">
+{% block title %}Bienvenue sur le Live Coding{% endblock %}
 
-	<!-- Ceci est un mon premier commentaire -->
-
-	<title>
-		Mon Live Coding
-	</title>
-
-        {% block stylesheets %}
-            <link href="{{ asset('build/app.css') }}" rel="stylesheet"/>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-</head>
-<body>
-	<h1> Mon Live Coding </h1>
-
+{% block body %}
+    <h1> Mon Live Coding </h1>
 		<h3>Démarrer un Live Coding</h3>
-		
-</body>
-</html>
+{% endblock %}
