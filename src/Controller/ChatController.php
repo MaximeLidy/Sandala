@@ -40,6 +40,7 @@ class ChatController extends AbstractController
                 return $this->render('chat/chatError.html.twig');
             }
         } 
+        //remplacer par la page 404
         return $this->render('chat/chatError.html.twig');
     }
 
