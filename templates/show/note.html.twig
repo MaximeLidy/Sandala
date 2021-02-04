@@ -1,6 +1,8 @@
 {% extends "show/show.html.twig" %}
 {% block body %}
 
-    <h1>{{ message }}.</h1>
+    <a id="note-retour" class="note" href="{{ path('home') }}">Retour</a>
+
+    <div id="div-note" class="note">{{ message|raw }}</div>
 
 {% endblock %}
