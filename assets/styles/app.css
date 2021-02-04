@@ -91,7 +91,7 @@ html {
 
 /*Links*/
 a:link {
-    color: var(--carolinaBlue);
+    color: var(--carolinaBlue)!important;
 }
 
 a:hover {
@@ -173,6 +173,8 @@ a:visited {
 
 #footer {
     /*justify-self: flex-end;*/
+    color: whitesmoke !important;
+    background-color: var(--englishViolet);
 }
 
 /* Mise en page du footer */
