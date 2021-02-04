@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
+{% extends "show/show.html.twig" %}
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('build/atom-one-dark.css') }}"/>
+    <div class="flex-grow-1 d-flex flex-column bg-dark text-light">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-expand-md">
+            <a class="navbar-brand" href="{{ path('home') }}">Return to Sandala</a>
+            <ul class="navbar-nav w-100">
+                <li class="nav-item ml-md-auto"><button id="duplicateCode" class="btn btn-warning switch">Duplicate code</button></li>
+            </ul>
+        </nav>
+        <!-- /bootstrap nav -->
+        <div class="container-fluid bg-dark text-light">
+            <!-- bootstrap nav -->
+            <div class="row">
+                <div class="p-4 mh-100 mx-auto mt-auto bg-dark text-center" id="content">
+                    <p><h1>དཀྱིལ་འཁོར་ བ༹ནིཤེད་</h1></p>
+                    <h2>This is NOT a 404 error. Nor a tattoo.</h2>
+                    <h3>It's supposed to mean that your mandala has vanished.</h3>
+                    <h4>According to an affordable automatic translator.</h4>
+                    <h5>Which, for sure, is not reliable. But we don't speak Tibetan.</h5>
+                    <h6>Which would mean that your message has vanished.</h6>
+                    <p>Meaning that your message is gone.</p>
+                    <p>Forever.</p>
+                    <p class="very-small-font">Sorry.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <h1>{{ message }}.</h1>
-
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+    {{ encore_entry_script_tags('code') }}
+    {% block javascripts %}
+        <script src="{{ asset('build/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') }}"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+        </script>
+    {% endblock %}
+{% endblock %}
