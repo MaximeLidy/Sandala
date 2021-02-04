@@ -184,33 +184,29 @@ a:visited {
 
 /********** Page Note **********/
 
-#container-note{
-    padding: 1em;
-}
-
 #note-retour{
     font-size: 1.3em;
     text-decoration: none;
     color: black;
     padding: 1em;
-    margin-left: 1em;
     background-color: rgb(15, 195, 219);
     box-shadow: 2px 4px 6px #444;
+    position: absolute; /* postulat de départ */
+    top: 2em; left: 2em;
 }
 
 #div-note{
     word-wrap: break-word;
     background-color: rgb(255, 225, 52);
-    font-size: 1.3em;
+    font-size: 2.2em;
     width: 480px;
+    min-height: 480px;
     padding: 1em;
     margin: auto;
     position: absolute; /* postulat de départ */
     top: 50%; left: 50%; /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
-    box-shadow: 2px 4px 6px #444;
-    color: whitesmoke !important;
-    background-color: var(--englishViolet);
+    box-shadow: 2px 4px 6px #444;   
 }
 
 /*Letter templating*/
