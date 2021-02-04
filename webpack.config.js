@@ -11,6 +11,7 @@ Encore
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
+    .cleanupOutputBeforeBuild()
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
     .copyFiles({
@@ -31,6 +32,12 @@ Encore
     .addEntry('letter', './assets/js/letter.js')
     .addEntry('copyUrl', './assets/js/copyUrl.js')
     .addEntry('mainForm', './assets/js/mainForm.js')
+    .addEntry('code', './assets/js/code.js')
+    .addEntry('homeHelper', './assets/js/homeHelper.js')
+    // For future dev in ckEditor
+    // .addEntry('ckeditorLetterConfig', './assets/js/ckEditorConfig/configLetter.js')
+    // .addEntry('ckeditorNoteConfig', './assets/js/ckEditorConfig/configNote.js')
+    // .addEntry('ckeditorCodeConfig', './assets/js/ckEditorConfig/configCode.js')
 
     .splitEntryChunks()
 
@@ -75,7 +82,7 @@ Encore
     //.enableTypeScriptLoader()
 
     // uncomment if you use React
-    //.enableReactPreset()
+    // .enableReactPreset()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher

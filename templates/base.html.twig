@@ -1,43 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome on Sandala!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="co-authored by maxime lidy, edouard dalage, sebastien steltzlen">
+    <meta name="description" content="A time limited text and source code sharing service.">
+    <title>{% block title %}Sandala{% endblock %}</title>
     {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
         <link rel="stylesheet" href="{{ asset('build/app.css') }}"/>
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-<body>
-<div id="wrapper">
-    <div id="pas-footer">
-        <header>
-            <nav id="first-navbar" class="navbar navbar-light bg-info">
-                <span class="navbar-brand mb-0 h1 text-light">Sandala</span>
-            </nav>
-            <nav id="second-navbar" class="navbar navbar-light bg-secondary">
-                <a class="text-light top-navbar-link text-decoration-none oui" href="">Home</a>
-                <a class="text-light top-navbar-link text-decoration-none oui" href="">Live</a>
-            </nav>
-        </header>
-        <main>
-            {% block body %}{% endblock %}
-        </main>
-    </div> {# pas-footer #}
-    <footer>
-        <div id="footer" class="bg-info very-small-font">
-            <nav class="navbar navbar-light bg-info text-center">
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav id="first-navbar" class="navbar navbar-light ">
 
-                <p class="text-light">
+            <a class="top-navbar-link text-decoration-none" href="{{ path('home') }}">
+                <span class="navbar-brand font-italic big-font align-top mr-1">Sandala</span>
+                <img src="{{ asset('build/images/mandala.png') }}" width="64" alt="logo"/>
+                <span class="navbar-brand font-italic title pl-2 align-bottom">
+                        an easy to use text message delivery service.
+                </span>
+            </a>
+
+        </nav>
+        <nav id="second-navbar" class="navbar navbar-light">
+            <a class="top-navbar-link text-decoration-none" href="{{ path('home') }}">Home</a>
+{#            <a class="top-navbar-link text-decoration-none" href="">Live</a>#}
+            {% if counter is defined %}
+                <p class="ml-auto font-italic small-font pr-4 mt-auto" style="opacity: 0.5">{{ counter }} messages were already sent !</p>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <div class="jumbotron-fluid">
+            <div class="container-fluid">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-auto">
+        <div class="very-small-font pt-2" id="footer">
+            <nav class="navbar navbar-light text-center">
+                <p>
                     Sandala is hosted by Scalingo SAS - 15 avenue du Rhin - 67100 STRASBOURG - France<br/>
                     Developed by : <span
-                            class="font-weight-bold">Edouard DA LAGE - Maxime LIDY - Sebastien STELTZEN</span><br/>
+                            class="font-weight-bold">Edouard DA LAGE - Maxime LIDY - Sebastien STELTZLEN</span><br/>
                     <a class="text-light text-decoration-none" href="">General Conditions of Use of the website
-                        (GCU)</a></p>
+                        (GCU)</a>
+                </p>
             </nav>
         </div>
     </footer>
-</div> {# wrapper #}
+
 {% block javascripts %}{% endblock %}
 </body>
 </html>

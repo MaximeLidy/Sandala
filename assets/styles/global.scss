@@ -1,4 +1,48 @@
 // customize some Bootstrap variables
 /*$primary: darken(#428bca, 20%);*/
 
+//$blueMunsell: #1B9AAA;
+//$yellowLight: #F8FFE5;
+//$greenCaribbean: #06D6A0;
+//$pinkParadise: #EF476F;
+//$orangeYellow: #FFC43D;
+//
+//$pine: #1F271B;
+//$blueSapphire: #19647E;
+//$verdigris: #28AFB0;
+//$yellowOrange: #F4D35E;
+//$sandy: #ee964b;
+//$whiteYellow: #f8ffe5;
+//
+//$prussianBlue: #023047;
+//$blueGreen: #219EBC;
+//$lightBlue: #8ECAE6;
+//$honeyYellow: #FFB703;
+//$orangeOrange: #FB8500;
+//$fullwidth: 100%;
+
+
+$creamWhite: #FFFCF5;
+$englishViolet: #403547;
+$yaleBlue: #004C97;
+$carolinaBlue: #009CDE;
+$orangeYellow: #EEB927;
+$yellowPantone: #FBE122;
+$appleGreen: #8CAB19;
+$spanishGreen: #258C4B;
+$greenRVB: #5FA430;
+
+$theme-colors: (
+        primary: $yaleBlue,
+        success: $greenRVB,
+        warning: $orangeYellow,
+        info: $carolinaBlue,
+        light: $creamWhite,
+        dark: $englishViolet,
+);
+
+body {
+  font-family: 'MartelRegular', sans-serif !important;
+}
+
 @import "~bootstrap/scss/bootstrap";

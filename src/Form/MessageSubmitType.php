@@ -37,7 +37,16 @@ class MessageSubmitType extends AbstractType
 
         $builder
             ->add('text', CKEditorType::class, [
-                'config_name' => 'code_config',
+                'config' => [
+                    'extraPlugins' => 'codesnippet',
+                    'codeSnippet_theme' => 'rainbow',
+                ],
+                'plugins' => [
+                    'codesnippet' => [
+                        'path' => 'build/ckeditor/plugins/codesnippet/',
+                        'filename' => 'plugin.js'
+                    ],
+                ],
             ])
             ->add('type', ChoiceType::class, [
                 'choices' => $type_options,
@@ -54,9 +63,8 @@ class MessageSubmitType extends AbstractType
                 )
             ])
             ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'btn, btn-primary'],
+                'attr' => ['class' => 'w-100 btn btn-primary btn-lg mt-auto'],
             ]);
-        ;
 
     }
 
