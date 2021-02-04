@@ -18,33 +18,28 @@
     font-style: normal;
     src: url("fonts/MartelSans-Regular.ttf");
 }
-
 @font-face {
     font-family: "MartelLight";
     font-style: normal;
     src: url("fonts/MartelSans-Light.ttf");
 }
-
 @font-face {
     font-family: "MartelBold";
     font-style: normal;
     src: url("fonts/MartelSans-Bold.ttf");
 }
-
 @font-face {
     font-family: "Tox";
     font-style: normal;
     font-weight: 400;
     src: url("fonts/Tox Typewriter.ttf");
 }
-
 @font-face {
     font-family: "Felt";
     font-style: normal;
     font-weight: 400;
     src: url("fonts/Chunky Felt.otf");
 }
-
 @font-face {
     font-family: "Inconsolata";
     font-style: normal;
@@ -84,6 +79,7 @@ html {
     font-size: 2rem;
 }
 
+
 .text-light-custom{
     color: var(--creamWhite);
 }
@@ -104,6 +100,13 @@ a:hover {
 
 a:visited {
     color: var(--orangeYellow);
+}
+
+.note {
+    font-family: "Felt", serif;
+}
+.code {
+    font-family: "Inconsolata", serif;
 }
 
 .fake-link {
@@ -148,7 +151,6 @@ a:visited {
     background-color: var(--creamWhite);
     font-family: "Felt", serif;
 }
-
 #second-navbar {
     display: flex;
     justify-content: flex-start;
@@ -178,8 +180,33 @@ a:visited {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: whitesmoke !important;
-    background-color: var(--englishViolet);
+}
+
+/********** Page Note **********/
+
+#note-retour{
+    font-size: 1.3em;
+    text-decoration: none;
+    color: black;
+    padding: 1em;
+    background-color: rgb(15, 195, 219);
+    box-shadow: 2px 4px 6px #444;
+    position: absolute; /* postulat de départ */
+    top: 2em; left: 2em;
+}
+
+#div-note{
+    word-wrap: break-word;
+    background-color: rgb(255, 225, 52);
+    font-size: 2.2em;
+    width: 480px;
+    min-height: 480px;
+    padding: 1em;
+    margin: auto;
+    position: absolute; /* postulat de départ */
+    top: 50%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+    box-shadow: 2px 4px 6px #444;   
 }
 
 /*Letter templating*/
