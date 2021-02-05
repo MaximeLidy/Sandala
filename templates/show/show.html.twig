@@ -2,6 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="co-authored by maxime lidy, edouard dalage, sebastien steltzlen">
+        {% if message is not defined %}
+            <meta name="description" content="A time limited text and source code sharing service.">
+        {% else %}
+            <meta name="description" content="A time limited text and source code sharing service.
+            {{ message | raw | striptags | slice(4, 100) |  u.truncate(100, '...') | trim('&lt;', 'left') }}">
+        {% endif %}
         <title>{% block title %}{{ type }}{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
