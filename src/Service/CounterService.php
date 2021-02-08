@@ -39,6 +39,5 @@ class CounterService
 
         $entityManager->persist($stats);
         $entityManager->flush();
-
     }
 }
