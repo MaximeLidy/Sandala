@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -76,12 +77,12 @@ class Message
         return $this;
     }
 
-    public function getDeathDate(): ?\DateTimeInterface
+    public function getDeathDate(): ?DateTimeInterface
     {
         return $this->deathDate;
     }
 
-    public function setDeathDate(\DateTimeInterface $deathDate): self
+    public function setDeathDate(DateTimeInterface $deathDate): self
     {
         $this->deathDate = $deathDate;
 
