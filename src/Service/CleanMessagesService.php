@@ -22,6 +22,4 @@ class CleanMessagesService
             $entityManager->flush();
         }
     }
-
-
 }
