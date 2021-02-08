@@ -199,8 +199,7 @@ a:visited {
     word-wrap: break-word;
     background-color: rgb(255, 225, 52);
     font-size: 2.2em;
-    width: 480px;
-    min-height: 480px;
+    height: 480px;
     padding: 1em;
     margin: auto;
     position: absolute; /* postulat de départ */
@@ -258,11 +257,14 @@ a:visited {
     #message_submit_type {
         max-width: 110px;
     }
+
+    #div-note{height: 360px}
+    
 }
 
 /*// Small devices (portrait phones, 411px and up)*/
 @media (min-width: 410px) {
-
+    
 }
 
 
@@ -271,6 +273,7 @@ a:visited {
     .title {
         font-size: 1rem;
     }
+    #div-note{height: 360px}
 }
 
 /*// Medium devices (tablets, 768px and up)*/
@@ -298,7 +301,7 @@ a:visited {
 
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
-
+    #div-note{height: 480px}
 }
 
 /*// X-Large devices (large desktops, 1200px and up)*/
