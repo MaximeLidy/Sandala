@@ -18,28 +18,33 @@
     font-style: normal;
     src: url("fonts/MartelSans-Regular.ttf");
 }
+
 @font-face {
     font-family: "MartelLight";
     font-style: normal;
     src: url("fonts/MartelSans-Light.ttf");
 }
+
 @font-face {
     font-family: "MartelBold";
     font-style: normal;
     src: url("fonts/MartelSans-Bold.ttf");
 }
+
 @font-face {
     font-family: "Tox";
     font-style: normal;
     font-weight: 400;
     src: url("fonts/Tox Typewriter.ttf");
 }
+
 @font-face {
     font-family: "Felt";
     font-style: normal;
     font-weight: 400;
     src: url("fonts/Chunky Felt.otf");
 }
+
 @font-face {
     font-family: "Inconsolata";
     font-style: normal;
@@ -55,6 +60,7 @@
 .jumbotron {
     background: transparent;
 }
+
 body {
     background-color: var(--creamWhite);
 }
@@ -80,18 +86,18 @@ html {
 }
 
 
-.text-light-custom{
+.text-light-custom {
     color: var(--creamWhite);
 }
 
-.text-dark-custom{
+.text-dark-custom {
     color: var(--englishViolet);
 }
 
 
 /*Links*/
 a:link {
-    color: var(--carolinaBlue)!important;
+    color: var(--carolinaBlue) !important;
 }
 
 a:hover {
@@ -105,6 +111,7 @@ a:visited {
 .note {
     font-family: "Felt", serif;
 }
+
 .code {
     font-family: "Inconsolata", serif;
 }
@@ -122,8 +129,8 @@ a:visited {
 }
 
 /* This is the checked state */
-.custom-radio .custom-control-input:checked~.custom-control-label::before,
-.custom-radio .custom-control-input:checked~.custom-control-label::after {
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before,
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
     background-color: var(--carolinaBlue);
     border-radius: 50%;
 }
@@ -151,6 +158,7 @@ a:visited {
     background-color: var(--creamWhite);
     font-family: "Felt", serif;
 }
+
 #second-navbar {
     display: flex;
     justify-content: flex-start;
@@ -186,7 +194,7 @@ a:visited {
 
 /********** Page Note **********/
 
-#note-retour{
+#note-retour {
     font-size: 1.3em;
     text-decoration: none;
     color: black;
@@ -194,10 +202,11 @@ a:visited {
     background-color: rgb(15, 195, 219);
     box-shadow: 2px 4px 6px #444;
     position: absolute; /* postulat de départ */
-    top: 2em; left: 2em;
+    top: 2em;
+    left: 2em;
 }
 
-#div-note{
+#div-note {
     word-wrap: break-word;
     background-color: rgb(255, 225, 52);
     font-size: 2.2em;
@@ -206,9 +215,10 @@ a:visited {
     padding: 1em;
     margin: auto;
     position: absolute; /* postulat de départ */
-    top: 50%; left: 50%; /* à 50%/50% du parent référent */
+    top: 50%;
+    left: 50%; /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
-    box-shadow: 2px 4px 6px #444;   
+    box-shadow: 2px 4px 6px #444;
 }
 
 /*Letter templating*/
@@ -238,7 +248,7 @@ a:visited {
 
 @media (min-width: 100px) {
 
-    #hourglass, #selectHelper, #counter{
+    #hourglass, #selectHelper, #counter {
         display: none;
     }
 
@@ -251,12 +261,13 @@ a:visited {
     }
 
     .mainform-button-submit {
-        position:absolute;
-        top:10px;
-        right:5px;
-        margin:0;
-        padding:5px 3px;
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        margin: 0;
+        padding: 5px 3px;
     }
+
     #message_submit_type {
         max-width: 110px;
     }
@@ -277,17 +288,19 @@ a:visited {
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-    #hourglass, #selectHelper, #counter{
+    #hourglass, #selectHelper, #counter {
         display: block;
     }
+
     .title {
         font-size: 1.2rem;
     }
+
     .mainform-button-submit {
         position: absolute;
-        top:200px;
-        left:0;
-        margin:0;
+        top: 200px;
+        left: 0;
+        margin: 0;
         bottom: 0;
         padding-left: 20px;
     }
