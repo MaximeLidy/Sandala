@@ -59,10 +59,10 @@ class ShowController extends AbstractController
                 }
 
             } else {
-                return $this->redirectToRoute('home');
+                return $this->render('show/removed.html.twig', ['type' => "This message has expired"]);
             }
         } else {
-            return $this->redirectToRoute('home');
+            return $this->render('show/removed.html.twig', ['type' => "This message has expired"]);
         }
     }
 }
