@@ -160,7 +160,6 @@ a:visited {
 }
 
 #second-navbar > a {
-    width: 25%;
     padding: 0.3em 0;
     text-align: center;
     color: whitesmoke !important;
@@ -258,6 +257,7 @@ a:visited {
     #message_submit_type {
         max-width: 110px;
     }
+
 }
 
 /*// Small devices (portrait phones, 410px and up)*/
@@ -312,6 +312,8 @@ a:visited {
 }
 
 /* ----- HOME RESPONSIVE PHONE ----- */
-@media (max-width: 575px){
+@media (max-width: 767px){
     #msg-counter{display: none;}
+    #text-mode1{padding:none !important}
+    #text-mode2{padding:none !important}
 }
