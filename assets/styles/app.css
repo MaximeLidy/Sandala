@@ -209,7 +209,6 @@ a:visited {
 #div-note {
     word-wrap: break-word;
     background-color: rgb(255, 225, 52);
-    font-size: 2.2em;
     height: 480px;
     padding: 1em;
     margin: auto;
@@ -271,13 +270,19 @@ a:visited {
         max-width: 110px;
     }
 
-    #div-note{height: 360px}
+    #div-note{
+        height: 280px;
+        font-size: 1.25rem;
+    }
     
 }
 
 /*// Small devices (portrait phones, 411px and up)*/
 @media (min-width: 410px) {
-    
+    #div-note{
+        height: 280px;
+        font-size: 1.5rem;
+    }
 }
 
 
@@ -286,7 +291,10 @@ a:visited {
     .title {
         font-size: 1rem;
     }
-    #div-note{height: 360px}
+    #div-note{
+        height: 360px;
+        font-size: 2rem;
+    }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
