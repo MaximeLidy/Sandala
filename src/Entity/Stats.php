@@ -122,7 +122,4 @@ class Stats
         $this->noteCount = $noteCount;
     }
 
-
-
-
 }

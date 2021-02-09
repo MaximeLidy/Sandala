@@ -1,6 +1,5 @@
 {% extends "show/show.html.twig" %}
 {% block body %}
-    <link rel="stylesheet" href="{{ asset('build/atom-one-dark.css') }}"/>
     <div class="flex-grow-1 d-flex flex-column bg-dark text-light">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-expand-md">
             <a class="navbar-brand" href="{{ path('home') }}">Return to Sandala</a>
@@ -18,20 +17,13 @@
                     <h3>It's supposed to mean that your mandala has vanished.</h3>
                     <h4>According to an affordable automatic translator.</h4>
                     <h5>Which, for sure, is not reliable. But we don't speak Tibetan.</h5>
-                    <h6>Which would mean that your message has vanished.</h6>
-                    <p>Meaning that your message is gone.</p>
+                    <h6>Meaning that your message is gone.</h6>
                     <p>Forever.</p>
                     <p class="very-small-font">Sorry.</p>
+                    <p>It might even have never existed, therefore, this is a 404 error.</p>
+                    <p class="very-small-font">"The 404 is and is not" Plato's Parmenides (157b-159b) V.2.0.1.1.</p>
                 </div>
             </div>
         </div>
     </div>
-
-    {{ encore_entry_script_tags('code') }}
-    {% block javascripts %}
-        <script src="{{ asset('build/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') }}"></script>
-        <script type="text/javascript">
-            hljs.initHighlightingOnLoad();
-        </script>
-    {% endblock %}
 {% endblock %}

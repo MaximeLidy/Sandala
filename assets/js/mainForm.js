@@ -1,9 +1,9 @@
 import 'jquery';
 
 // DEBUG
-for(var instanceName in CKEDITOR.instances) {
-    instanceName
-}
+// for(var instanceName in CKEDITOR.instances) {
+//     instanceName
+// }
 
 $(document).ready(function () {
     $(this).find("#message_submit_save").hide();

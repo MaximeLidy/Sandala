@@ -23,12 +23,12 @@ class ShowController extends AbstractController
         if (!empty($url)) {
             $messageRepo = $this->getDoctrine()->getRepository(Message::class)->findOneBy(['url' => $url]);
 
-            if($messageRepo != null){
+            if ($messageRepo != null) {
                 //Check if message has expired
                 $messageExpiration = $messageRepo->getDeathDate();
                 $now = new DateTime("now");
                 //If so, delete it
-                if($now > $messageExpiration){
+                if ($now > $messageExpiration) {
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->remove($messageRepo);
                     $entityManager->flush();
@@ -59,10 +59,10 @@ class ShowController extends AbstractController
                 }
 
             } else {
-                return $this->redirectToRoute('home');
+                return $this->render('show/removed.html.twig', ['type' => "This message has expired"]);
             }
         } else {
-            return $this->redirectToRoute('home');
+            return $this->render('show/removed.html.twig', ['type' => "This message has expired"]);
         }
     }
 }

@@ -47,6 +47,7 @@
         "symfony/webpack-encore-bundle": "^1.8",
         "symfony/yaml": "5.2.*",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/string-extra": "^3.2",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
@@ -100,6 +101,18 @@
         "symfony": {
             "allow-contrib": false,
             "require": "5.2.*"
+        },
+        "incenteev-parameters": {
+            "env-map": {
+                "database_host": "DATABASE_HOST",
+                "database_port": "DATABASE_PORT"
+            }
+        },
+        "paas": {
+            "compile": [
+                "php bin/console d:s:u --force && composer require webpack && npm install -g yarn && yarn install --force && yarn encore prod && php bin/console ckeditor:install && yarn add ckeditor@^4.12.1 && php bin/console assets:install public"
+            ]
         }
     }
+
 }
