@@ -236,7 +236,7 @@ a:visited {
 
 @media (min-width: 100px) {
 
-    #hourglass, #selectHelper, #counter{
+    #hourglass, #selectHelper, #counter, #div-hourglass{
         display: none;
     }
 
@@ -260,7 +260,7 @@ a:visited {
     }
 }
 
-/*// Small devices (portrait phones, 411px and up)*/
+/*// Small devices (portrait phones, 410px and up)*/
 @media (min-width: 410px) {
 
 }
@@ -309,4 +309,9 @@ a:visited {
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
 
+}
+
+/* ----- HOME RESPONSIVE PHONE ----- */
+@media (max-width: 575px){
+    #msg-counter{display: none;}
 }
