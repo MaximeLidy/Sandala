@@ -25,7 +25,7 @@ class HomeController extends AbstractController
      *
      * @Route("/", name="home")
      */
-    public function new(Request $request) : Response
+    public function new(Request $request): Response
     {
         //Loading em
         $entityManager = $this->getDoctrine()->getManager();
@@ -34,7 +34,7 @@ class HomeController extends AbstractController
             ->getRepository(Stats::class)
             ->find(1);
 
-        if(!is_null($counterObject)){
+        if (!is_null($counterObject)) {
             $counter = $counterObject->getCounter();
         } else {
             $counter = 0;
@@ -50,9 +50,9 @@ class HomeController extends AbstractController
         $form = $this->createForm(MessageSubmitType::class, $message);
 
 
-        if($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 
-            if($request->request->get($form->getName())["text"] != null){
+            if ($request->request->get($form->getName())["text"] != null) {
                 $dt = $request->request->get($form->getName())['duration'];
 
                 $dt = $this->addInterval($dt);
@@ -97,13 +97,15 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function addInterval($interval){
+    public function addInterval($interval)
+    {
         $dt = $this->getNowTime();
         $dt->add(new DateInterval($interval));
         return $dt;
     }
 
-    public function getNowTime(){
+    public function getNowTime()
+    {
         return new DateTime('NOW');
     }
 

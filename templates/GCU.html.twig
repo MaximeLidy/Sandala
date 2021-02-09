@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {{ encore_entry_script_tags('homeHelper') }}
+    <div class="row justify-content-md-center">
+        {% if url is not defined %}
+            <div class="row h-100">
+                <div class="col-12 pt-4 pr-2 text-justify" id="presentation">
+                    <div class="text-dark p-4">
+                        <h1>General Conditions of Use (GCU)</h1>
+                        <p>
+                            Sandala was mainly designed to share source codes between software developers, but it can be
+                            used for other purposes.
+                        </p>
+                        <p>
+                            Therefore,
+                        </p>
+                        <ul>
+                            <li>Sandala is co-owned by Maxime Lidy, Edouard Da Lage and <a href="https://www.linkedin.com/in/sebastien-steltzlen/">Sebastien Steltzlen</a></li>
+                            <li>Sandala is hosted in France therefore under its jurisdiction.</li>
+                            <li>Since no registration is required you're supposed to have <span class="font-weight-bold">a fair use</span> of this website. Which includes specific laws regarding `hate speeches`, `privacy` and `anti-harassment`</li>
+                            <ul>
+                                <li><h5>Hate speeches</h5>French laws protect individuals and groups from being defamed or insulted because they belong or do not belong, in fact or in fancy, to an ethnicity, a nation, a race, a religion, a sex, a sexual orientation, or a gender identity or because they have a handicap. The laws forbid any communication which is intended to incite discrimination against, hatred of, or harm to, anyone because of his belonging or not belonging, in fact or in fancy, to an ethnicity, a nation, a race, a religion, a sex, a sexual orientation, or a gender identity, or because he or she has a handicap.</li>
+                                <li><h5>Privacy</h5>A common means of online harassment is to broadcast private or personally identifiable information about the victim, such as her telephone number or email and home address. This practice, known as “doxing,” may constitute an infringement on the right to privacy, which is protected by the Penal Code, the Civil Code, and the European Convention on Human Rights. Article 226-1 of the Penal Code makes it illegal to intentionally broadcast, without the subject’s consent, words spoken in private or confidentially, or images of the subject in a private place.  Such an act is punishable by a fine of up to €45,000 and up to one year in jail. Furthermore, article 226-4-1 of the Penal Code provides that using identifying information “for the purpose of disturbing [the victim’s] peace of mind . . .  or to damage his/her honor or respectability,” is punishable by up to one year of imprisonment and a fine of up to €15,000.
+
+                                    Additionally, the practice of “doxing” may possibly run afoul of the French Penal Code’s prohibition on the misuse of personal data.  Indeed, using others’ personal data without respecting the European General Data Protection Regulation (GDPR) is punishable by up to five years in jail and a fine of up to €300,000. The same penalties apply to the offense of obtaining personal data via fraud or other illicit means, as well as the offense of unauthorized sharing private or embarrassing personal data to a third party.</li>
+
+                                <li><h5>Threats and Malicious Messages</h5>Several provisions of the Penal Code deal with threats and harassment.  Article 222-16 prohibits harassment by email, text, or telephone messages.  Making repeated malicious telephone calls or sending repeated electronic messages of a malicious nature in order to disturb the victim’s peace of mind is punishable by up to one year in jail and a fine of €15,000. Additionally, making threats against a person is illegal: threatening to commit a criminal offense against a person is punishable by up to six months in jail and a fine of up to €7,500. Death threats are punishable by up to three years in jails and a fine of up to €45,000. If the threat was verbal, then it needs to have been made more than once to be punishable. If the threat was made in writing, or by means of a picture or an object (such as, for example, slipping a bullet in the victim’s mailbox), then it need only have been made once to be punishable.</li>
+
+                                <li><h5>Sexual Harassment</h5> The French Penal Code has included a section on sexual harassment since at least 1994, but it was initially aimed more towards workplace sexual harassment and abuse of authority. Over the years, however, the legal concept of sexual harassment was expanded so that it is now defined as “the act of repeatedly imposing on a person remarks or behavior that have a sexual or sexist connotation, that either cause harm to his/her dignity because of their degrading or humiliating nature, or create an intimidating, hostile or offensive situation against him/her.”[29]  While a single act is not enough to constitute sexual harassment, single acts committed successively by several perpetrators against the same victim qualifies as sexual harassment, even if each perpetrator only committed a single act.
+
+                                    The penalty for sexual harassment is two years in jail and a fine of up to €30,000, but this is increased to three years in jail and a fine of €45,000 if certain aggravating circumstances are present. These aggravating circumstances include when the victim is particularly vulnerable due to age, illness, injury, disability, or pregnancy; when the victim is economically or socially vulnerable; when the harassment was committed by several perpetrators; and when the harassment was committed online or through another electronic means of communication.</li>
+
+                                <li><h5>General Harassment</h5>In 2014, French legislators inserted a new article in the Penal Code to address harassment in general. This article defines harassment as “repeated remarks or behavior that have for purpose or for effect a deterioration of [the victim’s] living conditions leading to a change in his/her physical or mental health.” As is the case for sexual harassment, the remarks or behavior must be repeated, so a single act is not enough to constitute harassment.  However, also as with sexual harassment, single acts committed successively by several perpetrators against the same victim qualifies as harassment, even if each perpetrator only committed a single act. The penalty for harassment is one year in jail and a fine of up to €15,000, but some aggravating circumstances can increase the penalty to two years in jail and a fine of €30,000. These aggravating circumstances include when the harassment caused the victim to be completely unable to work for more than eight days; when the victim is particularly vulnerable due to age, illness, disability, or pregnancy; and when the harassment was committed online or through another electronic means of communication. If two aggravating circumstances exist, then the penalty is increased to three years in jail and a fine of €45,000.</li>
+                                <p>Sources : <a href="https://www.loc.gov">https://www.loc.gov/</a></p>
+                                <li>If you consider yourself as a victim of any unfair use, feel free to contact <a href="https://www.linkedin.com/in/sebastien-steltzlen/">Sebastien Steltzlen</a></li>
+                            </ul>
+                            <p>&nbsp;</p>
+                            <li>Therefore, as soon as we're warned of any unfair use of this website or posts falling into the jurisdiction of the French Laws : <span class="font-weight-bold">those messages will be deleted</span> before their time out.</li>
+                            <li>No fees. But maybe a tipee one day ?</li>
+                            <li>No cookie except the usual session of your browser. We don't need to feed you.</li>
+                            <li>Thanks to wikipedia for it's Mandala Sand page !</li>
+                            <li>Sandala is running round the clock.</li>
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        {% endif %}
+    </div>
+
+{% endblock %}
