@@ -92,7 +92,7 @@ class ChatController extends AbstractController
         if (isset($port) && $port != "") {
             $number = $this->getDoctrine()->getRepository(Port::class)->findPortIfUnavailable($port);
             $jsUrl = $this->generateUrl('home', array('' => ''), UrlGeneratorInterface::NETWORK_PATH);
-            $jsUrl = rtrim($jsUrl, ':8000/?=');
+            $jsUrl = rtrim($jsUrl, '/?=');
             if ($number != null) {
                 return $this->render('chat/chatReader.html.twig', ["portNumber" => $port, 'url' => $jsUrl]);
             } else {
@@ -119,7 +119,7 @@ class ChatController extends AbstractController
 
         $url = $this->generateUrl('reader', ["port" => $port->getNumber()], UrlGeneratorInterface::ABSOLUTE_URL);
         $jsUrl = $this->generateUrl('home', array('' => ''), UrlGeneratorInterface::NETWORK_PATH);
-        $jsUrl = rtrim($jsUrl, ':8000/?=');
+        $jsUrl = rtrim($jsUrl, '/?=');
         if (isset($port)) {
             $port->setAvailable(false);
             $entityManager->persist($port);
