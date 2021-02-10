@@ -29,7 +29,7 @@
                         {{ form_widget(form.type, {label_attr: {class: 'radio-custom'}}) }}
 
                         <div class="align-middle" id="selectHelper">
-                            <div class=" m-2 alert alert-light small-font font-italic bg-info text-light" id="hint"
+                            <div class="mt-4 alert alert-light small-font font-italic bg-info text-light" id="hint"
                                  style="opacity: 0.6">
                                 <div class="row align-items-center w-100">
                                     <span class="">Choose your style !</span>
@@ -67,12 +67,12 @@
                     <img id="hourglass" src="{{ asset('build/images/hourglass64.png') }}" width="48" height="48"
                          alt="description"/>
                 </div>
-                <div class="col-sm-6 custom-control custom-radio d-flex" style="max-width: 350px">
+                <div class="pl-5 pl-md-0 col-sm-6 custom-control custom-radio d-flex align-middle" style="max-width: 350px">
                     {{ form_widget(form.duration, {label_attr: {class: 'radio-custom, radio-inline'}}) }}
                     {{ form_end(form) }}
                 </div>
                 <div class="col-sm-4">
-                    <div class="small-font font-italic text-secondary">I want my message to be active for...
+                    <div class="small-font font-italic text-secondary"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;I want my message to be active for...
                     </div>
                 </div>
             </div>
