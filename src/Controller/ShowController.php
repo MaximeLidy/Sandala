@@ -51,7 +51,7 @@ class ShowController extends AbstractController
                         case "code":
                             return $this->render('show/code.html.twig', [
                                 'message' => $message,
-                                'type' => 'Some source codes were shared with you...'
+                                'type' => 'Some source code were shared with you...'
                             ]);
                         default:
                             return $this->redirectToRoute('home');

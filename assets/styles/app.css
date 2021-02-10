@@ -10,25 +10,12 @@
     --spanishGreen: #258c4b;
     --greenRVB: #5FA430;
 
-    --fullwidth: 100%;
 }
 
 @font-face {
     font-family: "MartelRegular";
     font-style: normal;
     src: url("fonts/MartelSans-Regular.ttf");
-}
-
-@font-face {
-    font-family: "MartelLight";
-    font-style: normal;
-    src: url("fonts/MartelSans-Light.ttf");
-}
-
-@font-face {
-    font-family: "MartelBold";
-    font-style: normal;
-    src: url("fonts/MartelSans-Bold.ttf");
 }
 
 @font-face {
@@ -72,12 +59,10 @@ html {
 }
 
 .very-small-font {
-    font-family: "MartelRegular", serif;
     font-size: 0.7rem;
 }
 
 .small-font {
-    font-family: "MartelRegular", serif;
     font-size: 0.85rem;
 }
 
@@ -86,7 +71,7 @@ html {
 }
 
 
-.text-light-custom {
+.text-light-custom, pre {
     color: var(--creamWhite);
 }
 
@@ -97,7 +82,7 @@ html {
 
 /*Links*/
 a:link {
-    color: var(--carolinaBlue) !important;
+    color: var(--orangeYellow) !important;
 }
 
 a:hover {
@@ -105,15 +90,15 @@ a:hover {
 }
 
 a:visited {
-    color: var(--orangeYellow);
+    color: var(--carolinaBlue);
 }
 
 .note {
-    font-family: "Felt", serif;
+    font-family: "Felt", serif !important;
 }
 
 .code {
-    font-family: "Inconsolata", serif;
+    font-family: "Inconsolata", serif !important;;
 }
 
 .fake-link {
@@ -195,12 +180,13 @@ a:visited {
 /********** Page Note **********/
 
 #note-retour {
-    font-size: 1.3em;
+    font-family: "MartelRegular", serif;
+    font-size: 1em;
     text-decoration: none;
-    color: black;
+    color: var(--englishViolet);
     padding: 1em;
-    background-color: rgb(15, 195, 219);
-    box-shadow: 2px 4px 6px #444;
+    border: 2px solid var(--englishViolet);
+    border-radius: 10px;
     position: absolute; /* postulat de départ */
     top: 2em;
     left: 2em;
@@ -230,17 +216,17 @@ a:visited {
 }
 
 .letter {
-    font-family: "Tox", serif;
+    font-family: "Tox", serif !important;
 }
 
 /*Note templating*/
 .note {
-    font-family: "Felt", serif;
+    font-family: "Felt", serif !important;
 }
 
 /*Code templating*/
 .code {
-    font-family: "Inconsolata", serif;
+    font-family: "Inconsolata", serif !important;
     color: var(--creamWhite);
 }
 
@@ -266,8 +252,8 @@ a:visited {
         padding: 5px 3px;
     }
 
-    #message_submit_type {
-        max-width: 110px;
+    #hint {
+        max-width: 150px;
     }
 
     #div-note{
@@ -283,6 +269,10 @@ a:visited {
         height: 280px;
         font-size: 1.5rem;
     }
+
+    .letter {
+        font-size: 1em;
+    }
 }
 
 
@@ -295,12 +285,21 @@ a:visited {
         height: 360px;
         font-size: 2rem;
     }
+
+    .letter {
+        padding: 2em;
+        font-size: 1.1em;
+    }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
     #hourglass, #selectHelper, #counter {
         display: block;
+    }
+
+    .letter {
+        font-size: 1.2em;
     }
 
     .title {
