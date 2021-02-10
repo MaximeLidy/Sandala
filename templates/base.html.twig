@@ -15,7 +15,7 @@
     <header>
         <nav id="first-navbar" class="navbar navbar-light ">
 
-            <a class="top-navbar-link text-decoration-none" href="{{ path('home') }}">
+            <a class="top-navbar-link text-decoration-none note" href="{{ path('home') }}">
                 <span class="navbar-brand font-italic big-font align-top mr-1">Sandala</span>
                 <img src="{{ asset('build/images/mandala.png') }}" width="64" alt="logo"/>
                 <span class="navbar-brand font-italic title pl-2 align-bottom">
@@ -48,7 +48,7 @@
                     Sandala is hosted by Scalingo SAS - 15 avenue du Rhin - 67100 STRASBOURG - France<br/>
                     Developed by : <span
                             class="font-weight-bold">Edouard DA LAGE - Maxime LIDY - Sebastien STELTZLEN</span><br/>
-                    <a class="text-light text-decoration-none" href="">General Conditions of Use of the website
+                    <a class="text-light text-decoration-none" href="{{ path('gcu') }}">General Conditions of Use of the website
                         (GCU)</a>
                 </p>
             </nav>
