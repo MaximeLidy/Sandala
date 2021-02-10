@@ -97,7 +97,7 @@ html {
 
 /*Links*/
 a:link {
-    color: var(--carolinaBlue) !important;
+    color: var(--orangeYellow) !important;
 }
 
 a:hover {
@@ -105,7 +105,7 @@ a:hover {
 }
 
 a:visited {
-    color: var(--orangeYellow);
+    color: var(--carolinaBlue);
 }
 
 .note {
@@ -195,12 +195,13 @@ a:visited {
 /********** Page Note **********/
 
 #note-retour {
-    font-size: 1.3em;
+    font-family: "MartelRegular", serif;
+    font-size: 1em;
     text-decoration: none;
-    color: black;
+    color: var(--englishViolet);
     padding: 1em;
-    background-color: rgb(15, 195, 219);
-    box-shadow: 2px 4px 6px #444;
+    border: 2px solid var(--englishViolet);
+    border-radius: 10px;
     position: absolute; /* postulat de départ */
     top: 2em;
     left: 2em;
@@ -283,6 +284,10 @@ a:visited {
         height: 280px;
         font-size: 1.5rem;
     }
+
+    .letter {
+        font-size: 1em;
+    }
 }
 
 
@@ -295,12 +300,21 @@ a:visited {
         height: 360px;
         font-size: 2rem;
     }
+
+    .letter {
+        padding: 2em;
+        font-size: 1.1em;
+    }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
     #hourglass, #selectHelper, #counter {
         display: block;
+    }
+
+    .letter {
+        font-size: 1.2em;
     }
 
     .title {
