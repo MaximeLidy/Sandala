@@ -97,7 +97,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function addInterval($interval)
+    public function addInterval($interval): DateTime
     {
         $dt = $this->getNowTime();
         $dt->add(new DateInterval($interval));
