@@ -91,9 +91,10 @@ class ChatController extends AbstractController
 
         if (isset($port) && $port != "") {
             $number = $this->getDoctrine()->getRepository(Port::class)->findPortIfUnavailable($port);
-
+            $jsUrl = $this->generateUrl('home', array('' => ''), UrlGeneratorInterface::NETWORK_PATH);
+            $jsUrl = rtrim($jsUrl, ':8000/?=');
             if ($number != null) {
-                return $this->render('chat/chatReader.html.twig', ["portNumber" => $port]);
+                return $this->render('chat/chatReader.html.twig', ["portNumber" => $port, 'url' => $jsUrl]);
             } else {
                 return $this->render('chat/chatError.html.twig');
             }
@@ -117,12 +118,13 @@ class ChatController extends AbstractController
         $entityManager->flush();
 
         $url = $this->generateUrl('reader', ["port" => $port->getNumber()], UrlGeneratorInterface::ABSOLUTE_URL);
-
+        $jsUrl = $this->generateUrl('home', array('' => ''), UrlGeneratorInterface::NETWORK_PATH);
+        $jsUrl = rtrim($jsUrl, ':8000/?=');
         if (isset($port)) {
             $port->setAvailable(false);
             $entityManager->persist($port);
             $entityManager->flush();
-            return $this->render('chat/chatWriter.html.twig', ["portNumber" => $port->getNumber(), "readerUrl" =>$url]);
+            return $this->render('chat/chatWriter.html.twig', ["portNumber" => $port->getNumber(), "readerUrl" =>$url, "jsUrl" => $jsUrl]);
         } else {
             return $this->render('chat/chatError.html.twig');
         }
