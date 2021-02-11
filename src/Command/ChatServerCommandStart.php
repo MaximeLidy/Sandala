@@ -15,7 +15,7 @@ class ChatServerCommandStart extends Command
  
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $port = 9000;
+        $port = 24348;
         $output->writeln("Starting server on port " . $port);
         $server = IoServer::factory(
             new HttpServer(
