@@ -28,7 +28,7 @@
             <a class="top-navbar-link text-decoration-none" href="{{ path('home') }}">Home</a>
             <a class="top-navbar-link text-decoration-none" href="{{ path('welcome') }}">Live</a>
             {% if counter is defined %}
-                <p class="ml-auto font-italic small-font pr-4 mt-auto" style="opacity: 0.5">{{ counter }} messages were already sent !</p>
+                <p id="msg-counter" class="ml-auto font-italic small-font pr-4 mt-auto" style="opacity: 0.5">{{ counter }} messages were already sent !</p>
             {% endif %}
         </nav>
     </header>
