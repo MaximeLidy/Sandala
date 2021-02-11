@@ -153,7 +153,6 @@ a:visited {
 }
 
 #second-navbar > a {
-    width: 25%;
     padding: 0.3em 0;
     text-align: center;
     color: whitesmoke !important;
@@ -260,7 +259,10 @@ a:visited {
         height: 280px;
         font-size: 1.25rem;
     }
-    
+
+    #second-navbar > a {
+        width: 50%;
+    }
 }
 
 /*// Small devices (portrait phones, 411px and up)*/
@@ -319,6 +321,10 @@ a:visited {
         min-height: 300px;
         max-height: 300px;
     }
+
+    #second-navbar > a {
+        width: 25%;
+    }
 }
 
 /*// Large devices (desktops, 992px and up)*/
@@ -334,4 +340,18 @@ a:visited {
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
 
+}
+
+/*// ---------- //*/
+@media (min-width: 100px) and (max-width: 767px){
+    #msg-counter{
+        display: none;
+    }
+}
+
+/*// ---------- //*/
+@media (min-width: 576px) and (max-width: 767px){
+    #div-hourglass{
+        display: none;
+    }
 }
